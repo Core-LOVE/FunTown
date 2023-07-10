@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="27" height="24" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#f15928" nextlayerid="13" nextobjectid="30">
+ <editorsettings>
+  <export target="videofields_3.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="name" value="Videofields - Entrance"/>
+ </properties>
+ <tileset firstgid="1" name="videofields" tilewidth="40" tileheight="40" tilecount="247" columns="13">
+  <image source="../../../assets/sprites/tilesets/videofields.png" width="520" height="760"/>
+  <tile id="79">
+   <animation>
+    <frame tileid="79" duration="200"/>
+    <frame tileid="83" duration="200"/>
+    <frame tileid="87" duration="200"/>
+    <frame tileid="109" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="80">
+   <animation>
+    <frame tileid="80" duration="200"/>
+    <frame tileid="84" duration="200"/>
+    <frame tileid="88" duration="200"/>
+    <frame tileid="110" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="81">
+   <animation>
+    <frame tileid="81" duration="200"/>
+    <frame tileid="85" duration="200"/>
+    <frame tileid="89" duration="200"/>
+    <frame tileid="111" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="82">
+   <animation>
+    <frame tileid="82" duration="200"/>
+    <frame tileid="86" duration="200"/>
+    <frame tileid="90" duration="200"/>
+    <frame tileid="112" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="92">
+   <animation>
+    <frame tileid="92" duration="200"/>
+    <frame tileid="96" duration="200"/>
+    <frame tileid="100" duration="200"/>
+    <frame tileid="122" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="93">
+   <animation>
+    <frame tileid="93" duration="200"/>
+    <frame tileid="97" duration="200"/>
+    <frame tileid="101" duration="200"/>
+    <frame tileid="123" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="94">
+   <animation>
+    <frame tileid="94" duration="200"/>
+    <frame tileid="98" duration="200"/>
+    <frame tileid="102" duration="200"/>
+    <frame tileid="124" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="95">
+   <animation>
+    <frame tileid="95" duration="200"/>
+    <frame tileid="99" duration="200"/>
+    <frame tileid="103" duration="200"/>
+    <frame tileid="125" duration="200"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="248" source="../tilesets/videofieldsDecor.tsx"/>
+ <imagelayer id="7" name="frames" offsetx="840" offsety="40" parallaxx="0.1" parallaxy="0.1" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_frames.png" width="40" height="120"/>
+  <properties>
+   <property name="speedx" type="int" value="1"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="8" name="frames2" offsetx="880" offsety="80" parallaxx="0.1" parallaxy="0.1" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_frames.png" width="40" height="120"/>
+  <properties>
+   <property name="speedx" type="int" value="-1"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="5" name="nightsky" offsetx="320" offsety="40" parallaxx="0.25" parallaxy="0.25" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_nightsky.png" width="512" height="480"/>
+  <properties>
+   <property name="speedx" type="float" value="0.5"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="4" name="sky" offsetx="-120" offsety="120" parallaxx="0.5" parallaxy="0.5" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_sky.png" width="512" height="480"/>
+ </imagelayer>
+ <imagelayer id="3" name="parallax" offsetx="120" offsety="280" parallaxx="0.75" parallaxy="0.75" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_parallax.png" width="640" height="480"/>
+ </imagelayer>
+ <layer id="1" name="tiles" width="27" height="24">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+4,4,4,4,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,17,17,17,17,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+30,30,30,30,30,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+44,40,40,40,42,44,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,53,53,53,55,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,53,53,53,55,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,53,53,53,55,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,53,53,53,55,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,66,66,66,55,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+4,17,17,17,4,4,4,4,4,4,4,4,4,5,0,0,0,0,3,4,4,4,4,4,4,4,4,
+17,17,17,17,17,17,17,17,17,17,17,17,17,18,0,0,0,0,16,17,17,17,17,17,17,17,17,
+30,30,30,30,30,30,30,30,30,30,30,17,17,17,4,4,4,4,17,17,17,30,30,30,30,30,30,
+43,43,43,43,43,43,43,43,43,43,43,16,17,17,17,17,17,17,17,17,18,43,43,43,43,43,43,
+56,56,56,56,56,56,56,56,56,56,56,16,30,30,30,30,30,30,30,30,31,56,56,56,56,56,56,
+56,56,56,56,56,56,56,56,56,56,56,42,43,43,43,43,43,43,43,43,44,56,56,56,56,56,56
+</data>
+ </layer>
+ <layer id="2" name="tiles2" width="27" height="24">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,80,81,82,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,93,94,95,96,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,106,107,108,109,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,80,81,82,83,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,93,94,95,96,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,120,121,0,0,0,0,0,0,0,106,107,108,109,0,0,80,81,82,83,0,
+0,0,0,0,0,0,0,0,0,0,6,8,0,0,0,0,0,120,0,0,0,6,8,0,0,0,0,
+0,0,0,0,6,7,7,8,0,0,32,34,0,0,0,0,0,120,0,0,0,32,34,0,0,6,8,
+0,0,0,0,32,33,33,34,0,0,0,0,6,7,7,8,0,6,8,0,0,0,0,0,0,32,34,
+0,0,0,0,0,0,0,0,0,0,0,0,19,20,20,21,0,32,34,0,0,0,0,0,0,0,0,
+45,45,45,45,45,45,45,45,45,45,45,0,32,33,33,34,0,0,0,0,0,45,45,45,45,45,45,
+58,58,58,58,58,58,58,58,58,58,58,0,0,0,0,0,0,0,0,0,0,58,58,58,58,58,58
+</data>
+ </layer>
+ <layer id="6" name="decor" width="27" height="24">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,47,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,47,48,0,0,0,
+0,0,60,61,0,47,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,60,61,0,0,0,
+0,0,73,74,0,60,61,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,73,74,0,0,0
+</data>
+ </layer>
+ <objectgroup color="#ff0000" id="11" name="collision" tintcolor="#ff0000">
+  <object id="4" x="200" y="680" width="360" height="40"/>
+  <object id="5" x="560" y="720" width="160" height="80"/>
+  <object id="7" x="720" y="680" width="360" height="40"/>
+  <object id="8" x="840" y="840" width="240" height="120"/>
+  <object id="9" x="0" y="840" width="440" height="120"/>
+  <object id="10" x="440" y="920" width="400" height="40"/>
+  <object id="14" x="0" y="320" width="240" height="40"/>
+  <object id="15" x="200" y="360" width="40" height="120"/>
+  <object id="16" x="160" y="480" width="40" height="240"/>
+  <object id="17" x="0" y="480" width="40" height="240"/>
+ </objectgroup>
+ <objectgroup id="12" name="markers">
+  <object id="11" name="spawn" x="40" y="400" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup id="9" name="paths">
+  <object id="1" name="drawgon" x="720" y="760" width="120" height="120">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup id="10" name="objects">
+  <object id="2" name="enemy" x="760" y="800" width="40" height="40">
+   <properties>
+    <property name="actor" value="drawgon"/>
+    <property name="chase" type="bool" value="false"/>
+    <property name="encounter" value="bookworm n drawgon"/>
+    <property name="path" value="drawgon"/>
+    <property name="progress" value="-0.1"/>
+   </properties>
+  </object>
+  <object id="3" name="savepoint" x="600" y="800" width="40" height="40"/>
+  <object id="13" name="slidearea" x="40" y="480" width="120" height="240">
+   <properties>
+    <property name="dust" value="effects/slide_sand"/>
+   </properties>
+  </object>
+  <object id="21" gid="248" x="280" y="760" width="80" height="120"/>
+  <object id="22" gid="248" x="760" y="760" width="80" height="120"/>
+  <object id="23" gid="248" x="80" y="400" width="80" height="120"/>
+  <object id="24" gid="11" x="480" y="760" width="40" height="40"/>
+  <object id="25" gid="11" x="640" y="920" width="40" height="40"/>
+  <object id="26" gid="11" x="920" y="760" width="40" height="40"/>
+  <object id="27" gid="11" x="160" y="800" width="40" height="40"/>
+  <object id="28" name="transition" x="1080" y="720" width="40" height="120">
+   <properties>
+    <property name="map" value="videofields_4"/>
+    <property name="marker" value="1"/>
+   </properties>
+  </object>
+  <object id="29" name="ballon" x="440" y="800">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="30" height="28" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#f15928" nextlayerid="5" nextobjectid="2">
+ <tileset firstgid="1" source="../tilesets/videofields.tsx"/>
+ <imagelayer id="7" name="frames" offsetx="840" offsety="-40" parallaxx="0.1" parallaxy="0.1" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_frames.png" width="40" height="120"/>
+  <properties>
+   <property name="speedx" type="int" value="1"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="8" name="frames2" offsetx="880" offsety="0" parallaxx="0.1" parallaxy="0.1" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_frames.png" width="40" height="120"/>
+  <properties>
+   <property name="speedx" type="int" value="-1"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="5" name="nightsky" offsetx="320" offsety="-40" parallaxx="0.25" parallaxy="0.25" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_nightsky.png" width="512" height="480"/>
+  <properties>
+   <property name="speedx" type="float" value="0.5"/>
+  </properties>
+ </imagelayer>
+ <imagelayer id="4" name="sky" offsetx="-120" offsety="200" parallaxx="0.5" parallaxy="0.5" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_sky.png" width="512" height="480"/>
+ </imagelayer>
+ <imagelayer id="3" name="parallax" offsetx="120" offsety="440" parallaxx="0.75" parallaxy="0.75" repeatx="1">
+  <image source="../../../assets/sprites/tilesets/parallax/videofield_parallax.png" width="640" height="480"/>
+ </imagelayer>
+ <layer id="1" name="tiles" width="30" height="28">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+4,4,4,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,17,17,17,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+30,30,30,30,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+43,43,43,43,44,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="markers">
+  <object id="1" name="1" x="40" y="360">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

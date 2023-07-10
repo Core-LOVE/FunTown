@@ -1,0 +1,14 @@
+{
+    "name": "Fun Town",
+
+    "quickReload": true,
+
+    "hidden": false,
+    "party": ["kris", "susie"],
+	
+    "config": {
+        "kristal": {
+			"speechBubble": "ch3",
+        }
+    }
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="3" nextobjectid="18">
+ <editorsettings>
+  <export target="test.lua" format="lua"/>
+ </editorsettings>
+ <layer id="1" name="Слой тайлов 1" width="16" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="objects">
+  <object id="2" name="savepoint" x="120" y="80">
+   <point/>
+  </object>
+  <object id="4" name="Shadowmen" type="npc" x="560" y="160">
+   <properties>
+    <property name="actor" value="shadowmen"/>
+    <property name="animation" value="pullsocks"/>
+    <property name="cutscene" value="shadowmen_scream"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="Shadowmen" type="npc" x="560" y="240">
+   <properties>
+    <property name="actor" value="shadowmen"/>
+    <property name="animation" value="pullsocks"/>
+    <property name="cutscene" value="shadowmen_scream"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="8" name="Shadowmen" type="npc" x="560" y="320">
+   <properties>
+    <property name="actor" value="shadowmen"/>
+    <property name="animation" value="pullsocks"/>
+    <property name="cutscene" value="shadowmen_scream"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="11" name="Shadowmen" type="npc" x="560" y="400">
+   <properties>
+    <property name="actor" value="shadowmen"/>
+    <property name="animation" value="pullsocks"/>
+    <property name="cutscene" value="shadowmen_scream"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="15" name="npc" x="80" y="200">
+   <properties>
+    <property name="actor" value="fizzota"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

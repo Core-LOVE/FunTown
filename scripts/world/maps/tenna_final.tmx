@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="20" tileheight="20" infinite="0" nextlayerid="10" nextobjectid="11">
+ <editorsettings>
+  <export target="tenna_final.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" name="Fountai" tilewidth="350" tileheight="90" tilecount="4" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="350" height="90" source="../../../assets/sprites/tilesets/big/arena_fountain_1.png"/>
+   <animation>
+    <frame tileid="0" duration="250"/>
+    <frame tileid="1" duration="250"/>
+    <frame tileid="2" duration="250"/>
+    <frame tileid="3" duration="250"/>
+   </animation>
+  </tile>
+  <tile id="1">
+   <image width="350" height="90" source="../../../assets/sprites/tilesets/big/arena_fountain_2.png"/>
+  </tile>
+  <tile id="2">
+   <image width="350" height="90" source="../../../assets/sprites/tilesets/big/arena_fountain_3.png"/>
+  </tile>
+  <tile id="3">
+   <image width="350" height="90" source="../../../assets/sprites/tilesets/big/arena_fountain_4.png"/>
+  </tile>
+ </tileset>
+ <objectgroup id="5" name="collision">
+  <object id="6" x="0" y="260">
+   <polyline points="0,0 20,20"/>
+  </object>
+  <object id="9" x="60" y="40" width="520" height="40"/>
+ </objectgroup>
+ <imagelayer id="2" name="location">
+  <image source="../../../assets/sprites/tilesets/big/tenna_location.png" width="640" height="480"/>
+ </imagelayer>
+ <layer id="1" name="fountain" width="32" height="24">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="6" name="objects"/>
+ <imagelayer id="7" name="curtain">
+  <image source="../../../assets/sprites/tilesets/big/tenna_location_curtain.png" width="640" height="480"/>
+ </imagelayer>
+ <imagelayer id="8" name="flowers">
+  <image source="../../../assets/sprites/tilesets/big/tenna_location_flowers.png" width="640" height="480"/>
+ </imagelayer>
+ <imagelayer id="9" name="lights">
+  <image source="../../../assets/sprites/tilesets/big/tenna_location_light.png" width="640" height="480"/>
+ </imagelayer>
+</map>
