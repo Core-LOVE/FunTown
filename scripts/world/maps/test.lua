@@ -153,7 +153,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["actor"] = "fizzota"
+            ["actor"] = "eternal_lumia"
           }
         }
       }

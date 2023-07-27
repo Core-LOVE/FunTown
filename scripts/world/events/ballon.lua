@@ -12,7 +12,9 @@ end
 function MyEvent:onCollide(chara)
     Assets.playSound("item")
 	
-	Game.world.player:setAnimation('ballon')
+	local player = Game.world.player
+	
+	player:setState("BALLON", false, self.lock_movement)
 	
     self:remove()
 end

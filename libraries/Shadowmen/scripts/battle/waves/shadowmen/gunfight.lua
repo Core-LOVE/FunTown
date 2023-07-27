@@ -32,13 +32,16 @@ local function update(self, wait, enemy)
 		shoot.rotation = gun.rotation
 		shoot.layer = 8999
 		
-		self.timer:script(function(wait)
+		local t = Timer()
+		
+		t:script(function(wait)
 			wait()
 			wait()
 			wait()
 			shoot:remove()
 		end)
 		
+		shoot:addChild(t)
 		Game.battle:addChild(shoot)
 		
 		-- local bullet = self:spawnBullet("shadowmen/bullet", x, y)

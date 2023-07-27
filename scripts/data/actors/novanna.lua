@@ -27,6 +27,7 @@ function actor:init()
 
     -- Sound to play when this actor speaks (optional)
     self.voice = "novanna"
+	
     -- self.indent_string = "*** "
     -- Path to this actor's portrait for dialogue (optional)
     self.portrait_path = "face/novanna"
@@ -39,6 +40,7 @@ function actor:init()
 
     -- Table of sprite animations
     self.animations = {
+		["battle/idle"] = {"battle/idle", 0.15, true},
         -- ["laugh"] = {"lumia_laugh", 0.15, true},
         -- ["cameraOn"] = {"lumia_camera", 0.2, false},
         -- ["cameraOff"] = {"lumia_camera", 0.2, false, frames = {3, 2, 1}},

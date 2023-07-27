@@ -22,6 +22,7 @@ function MyEnemy:init()
     -- self:registerAct("DualHeal", "Heals\neveryone", "ralsei", 50)
 	
     self.waves = {
+		"superstar/stars",
         -- "drawgon/flames",
 		-- "drawgon/draw",
 	}
@@ -41,27 +42,27 @@ function MyEnemy:init()
     }
 end
 
-function MyEnemy:getEnemyDialogue()
-    if self.text_override then
-        local dialogue = self.text_override
-        self.text_override = nil
-        return dialogue
-    end
+-- function MyEnemy:getEnemyDialogue()
+    -- if self.text_override then
+        -- local dialogue = self.text_override
+        -- self.text_override = nil
+        -- return dialogue
+    -- end
 
-	Assets.playSound("drawgon_growl", 3.5, 0.5)
+	-- Assets.playSound("drawgon_growl", 3.5, 0.5)
 	
-    local dialogue
-    if self.mercy >= 100 then
-        dialogue = {
-            "[image:text/happy, 0, 0, 2, 2, 0.1]\n",
-        }
-    else
-        dialogue = {
-            "[image:text/growl, 0, 0, 2, 2, 0.1]\n",
-        }
-    end
-    return dialogue[math.random(#dialogue)]
-end
+    -- local dialogue
+    -- if self.mercy >= 100 then
+        -- dialogue = {
+            -- "[image:text/happy, 0, 0, 2, 2, 0.1]\n",
+        -- }
+    -- else
+        -- dialogue = {
+            -- "[image:text/growl, 0, 0, 2, 2, 0.1]\n",
+        -- }
+    -- end
+    -- return dialogue[math.random(#dialogue)]
+-- end
 
 
 return MyEnemy

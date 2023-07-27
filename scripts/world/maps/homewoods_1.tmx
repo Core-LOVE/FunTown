@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="2" nextobjectid="1">
+ <editorsettings>
+  <export target="homewoods_1.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="../tilesets/homewoods.tsx"/>
+ <layer id="1" name="Слой тайлов 1" width="16" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1,2,2,2,2,2,2,2,2,4,5,6,1,2,2,
+0,14,15,15,15,15,15,15,15,15,17,18,19,14,15,15,
+0,14,15,15,15,15,15,15,15,15,17,18,19,14,15,15,
+0,27,28,28,28,28,28,28,28,28,30,31,32,27,28,28,
+0,40,41,41,41,41,41,41,41,42,43,44,45,40,41,41,
+0,53,54,54,54,54,54,54,54,55,56,57,58,53,54,54,
+0,53,54,54,54,54,54,54,54,55,56,57,58,53,54,54,
+0,53,54,54,54,54,54,54,54,55,56,57,58,53,54,54
+</data>
+ </layer>
+</map>

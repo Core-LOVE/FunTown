@@ -8,5 +8,28 @@
         "."
     ],
     "propertyTypes": [
+        {
+            "id": 1,
+            "name": "Condition",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "image"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "color": "#fff9f9ff",
+            "drawFill": true,
+            "id": 2,
+            "members": [
+            ],
+            "name": "Event",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object"
+            ]
+        }
     ]
 }

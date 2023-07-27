@@ -4,6 +4,7 @@
   <export target="videofields_3.lua" format="lua"/>
  </editorsettings>
  <properties>
+  <property name="music" value="videofields"/>
   <property name="name" value="Videofields - Entrance"/>
  </properties>
  <tileset firstgid="1" name="videofields" tilewidth="40" tileheight="40" tilecount="247" columns="13">
@@ -230,9 +231,6 @@
     <property name="map" value="videofields_4"/>
     <property name="marker" value="1"/>
    </properties>
-  </object>
-  <object id="29" name="ballon" x="440" y="800">
-   <point/>
   </object>
  </objectgroup>
 </map>

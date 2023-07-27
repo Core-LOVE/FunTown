@@ -22,15 +22,15 @@ function MyEnemy:init()
     -- self:registerAct("DualHeal", "Heals\neveryone", "ralsei", 50)
 	
     self.waves = {
-		"lumia/hats",
-        -- "drawgon/flames",
-		-- "drawgon/draw",
+		-- "lumia/ball",
+		"lumia/flash",
 	}
 	
+	self.exit_on_defeat = false
 	self.prev_wave = nil
 	
 	self.spare_points = 5
-	self.attack = 16
+	self.attack = 13
 	self.health = 800
 	self.max_health = self.health
 	self.gold = 50
@@ -43,6 +43,24 @@ function MyEnemy:init()
     }
 	
 	self.dialogue = 0
+end
+
+function EnemyBattler:onDefeat(damage, battler)
+    if self.exit_on_defeat then
+        self:onDefeatRun(damage, battler)
+    else
+        self.sprite:setAnimation("defeat")
+    end
+end
+
+function MyEnemy:defeat(type, ...)
+	super.defeat(self, type, ...)
+	
+	if type == "VIOLENCED" then
+		Assets.playSound("lumia dislike")
+	else
+		Assets.playSound("lumia huh")
+	end
 end
 
 function MyEnemy:getEnemyDialogue()
@@ -75,5 +93,17 @@ function MyEnemy:getEnemyDialogue()
     return dialogue[math.random(#dialogue)]
 end
 
+function MyEnemy:cam_flash()
+	local t = Timer()
+	local effect = Sprite("effects/sparkle", (self.width * .5) + 6, (self.height * .5) - 15)
+	effect:fadeOutAndRemove(.5)
+	effect:setOrigin(1, 1)
+	effect:setScale(2)
+	t:tween(.5, effect, {scale_x = 3, scale_y = 3, x = effect.x - 4, y = effect.y - 4}, 'out-sine')
+	
+	self:addChild(effect)
+	effect:addChild(t)
+	Assets.playSound("camera")
+end
 
 return MyEnemy

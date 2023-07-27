@@ -18,19 +18,80 @@ function MyEncounter:initTransport()
 		local transport = Sprite("other/ballon_bottom", -character.width * .5, character.height - 12)
 		character:addChild(transport)    
 		
-		local ballon = Sprite("other/ballon_" .. character.chara.id, (character.width * .5) - 16, -character.height * .75)
+		local ballon = Sprite("other/ballon_" .. character.chara.id, 0, -character.height * .75)
+		ballon.onCollide = function(other)
+			if other.id == "bag" then
+				ballon.visible = false
+			end
+		end
+		
 		character:addChild(ballon) 
+		
+		do
+			local line = Line(ballon.x, ballon.y + 16, transport.x + 8, transport.y + character.height * .5)
+			line.layer = ballon.layer + 1
+			line.color = {0, 0, 0}
+			Utils.hook(line, 'update', function(orig, _)
+				orig(line)
+				line.y = ballon.y + 16
+			end)
+			
+			character:addChild(line)
+		end
+		
+		do
+			local line = Line(ballon.x + 32, ballon.y + 16, transport.x + 16, transport.y + character.height * .5)
+			line.layer = ballon.layer + 1
+			line.color = {0, 0, 0}
+			Utils.hook(line, 'update', function(orig, _)
+				orig(line)
+				line.y = ballon.y + 16
+			end)
+			
+			character:addChild(line)
+		end
 		
 		moveCharacter(t, character, nil, index / 3)
 		moveCharacter(t, ballon, -2, index / 3)	
     end
 	
     for index, character in ipairs(Game.battle.enemies) do
-		local transport = Sprite("other/ballon_bottom_novanna", -character.width * .5, character.height - 12)
+		local transport = Sprite("other/ballon_bottom_novanna", -character.width * .5, character.height - 6)
 		character:addChild(transport)    
 		
 		local ballon = Sprite("other/ballon_" .. character.id, -(character.width * .5) + 8, -character.height * 1.64)
 		character:addChild(ballon) 
+		
+		character.parts = {}
+		
+		table.insert(character.parts, ballon)
+		table.insert(character.parts, transport)
+		
+		do
+			local line = Line(ballon.x, ballon.y + 32, transport.x + 8, transport.y + character.height)
+			line.layer = ballon.layer + 1
+			line.color = {0, 0, 0}
+			Utils.hook(line, 'update', function(orig, _)
+				orig(line)
+				line.y = ballon.y + 32
+			end)
+			
+			character:addChild(line)
+			table.insert(character.parts, line)
+		end
+		
+		do
+			local line = Line(ballon.x + 64, ballon.y + 32, transport.x + 19, transport.y + character.height)
+			line.layer = ballon.layer + 1
+			line.color = {0, 0, 0}
+			Utils.hook(line, 'update', function(orig, _)
+				orig(line)
+				line.y = ballon.y + 32
+			end)
+			
+			character:addChild(line)
+			table.insert(character.parts, line)
+		end
 		
 		moveCharacter(t, character, nil, index / 3)
 		moveCharacter(t, ballon, -2, index / 3)	
@@ -42,13 +103,17 @@ end
 function MyEncounter:init()
     super:init(self)
 	
-	local tenna = self:addEnemy("novanna", 520, 240)
-	tenna:setAnimation('battle/idle')
-	
+	self:addEnemy("novanna", 520, 240)
+
     self.text = "* Novanna laughs with her pony pet!"
 	self.music = "hot flutter"
 	
 	self.background = false
+	self.default_xactions = false
+	self.no_end_message = true
+	
+	-- Game.battle:registerXAction("ralsei", "Overthrow")
+    Game.battle:registerXAction("susie", "Overthrow")
 	
 	self:initTransport()
 end

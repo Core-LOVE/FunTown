@@ -3,25 +3,101 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "scripts/world/maps/novanna battle.tmx",
+    "activeFile": "scripts/world/maps/homewoods_test.tmx",
     "expandedProjectPaths": [
+        ".",
+        "scripts",
+        "scripts/world/maps",
+        "scripts/world"
     ],
     "file.lastUsedOpenFilter": "Все файлы (*)",
     "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley2/alley2.tmx": {
+            "expandedObjectLayers": [
+                4,
+                5
+            ],
+            "scale": 0.75,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 954.6666666666666,
+                "y": 887.3333333333333
+            }
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/alley.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/alley_animated.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/alley_buildings_glitch.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/city_alley.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/street_edges.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/test_battleborder.tsx": {
+            "scaleInDock": 1
+        },
         "scripts/world/maps/funtheatre_test.tmx": {
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 403.5,
-                "y": 281
+                "x": 443.5,
+                "y": 398
             }
+        },
+        "scripts/world/maps/homewoods_1.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 609.5,
+                "y": 407
+            }
+        },
+        "scripts/world/maps/homewoods_test.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2
+            ],
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 259.33333333333337,
+                "y": 562.6666666666666
+            }
+        },
+        "scripts/world/maps/homewoods_test.tmx#homewoods": {
+            "scaleInDock": 1
         },
         "scripts/world/maps/novanna battle.tmx": {
             "scale": 0.75,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 319.33333333333337,
-                "y": 311.99999999999994
+                "x": 320,
+                "y": 240.66666666666669
+            }
+        },
+        "scripts/world/maps/novanna battle/novanna battle.tmx": {
+            "scale": 1.2214285714285715,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 669.7076023391812,
+                "y": 255.02923976608184
+            }
+        },
+        "scripts/world/maps/sewer_1.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1044.6666666666665,
+                "y": 221.33333333333331
             }
         },
         "scripts/world/maps/tenna_final.tmx": {
@@ -35,47 +111,96 @@
         "scripts/world/maps/tenna_final.tmx#Fountai": {
             "scaleInDock": 1
         },
-        "scripts/world/maps/videofields_3.tmx": {
-            "scale": 0.7124999999999999,
-            "selectedLayer": 0,
+        "scripts/world/maps/test.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.414609375,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 541.0526315789474,
-                "y": 480.00000000000006
+                "x": 78.11343679240073,
+                "y": 123.70906279339484
+            }
+        },
+        "scripts/world/maps/videofields_3.tmx": {
+            "expandedObjectLayers": [
+                10
+            ],
+            "scale": 0.7124999999999999,
+            "selectedLayer": 11,
+            "viewCenter": {
+                "x": 539.6491228070175,
+                "y": 771.9298245614036
             }
         },
         "scripts/world/maps/videofields_3.tmx#videofields": {
             "scaleInDock": 1
         },
+        "scripts/world/maps/videofields_4.tmx": {
+            "expandedObjectLayers": [
+                6
+            ],
+            "scale": 0.75,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 924.6666666666666,
+                "y": 416
+            }
+        },
         "scripts/world/tilesets/funtheatre.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 0.75,
             "scaleInEditor": 1
         },
+        "scripts/world/tilesets/homewoods.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "scripts/world/tilesets/sewer.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "scripts/world/tilesets/videofields.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.5
+        },
         "scripts/world/tilesets/videofieldsDecor.tsx": {
+            "dynamicWrapping": true,
             "scaleInDock": 1
         }
     },
+    "frame.defaultDuration": 500,
     "last.exportedFilePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/scripts/world/maps",
     "last.imagePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/assets/sprites/tilesets",
     "lastUsedTilesetExportFilter": "Lua файлы (*.lua)",
-    "map.height": 12,
+    "map.height": 24,
     "map.lastUsedExportFilter": "Lua файлы (*.lua)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 40,
     "map.tileWidth": 40,
-    "map.width": 16,
+    "map.width": 24,
     "openFiles": [
-        "scripts/world/maps/funtheatre_test.tmx",
-        "scripts/world/maps/novanna battle.tmx",
-        "scripts/world/maps/videofields_3.tmx"
+        "scripts/world/maps/videofields_3.tmx",
+        "scripts/world/maps/videofields_4.tmx",
+        "scripts/world/maps/homewoods_test.tmx",
+        "scripts/world/maps/test.tmx"
     ],
     "project": "fun town.tiled-project",
-    "property.type": "int",
+    "property.type": "Condition",
     "recentFiles": [
-        "scripts/world/maps/funtheatre_test.tmx",
         "scripts/world/maps/videofields_3.tmx",
+        "scripts/world/maps/videofields_4.tmx",
+        "scripts/world/maps/test.tmx",
+        "scripts/world/maps/homewoods_test.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley2/alley2.tmx",
+        "scripts/world/maps/novanna battle/novanna battle.tmx",
+        "scripts/world/tilesets/homewoods.tsx",
+        "scripts/world/maps/homewoods_1.tmx",
+        "scripts/world/maps/funtheatre_test.tmx",
         "scripts/world/maps/novanna battle.tmx",
-        "scripts/world/tilesets/funtheatre.tsx",
-        "scripts/world/maps/tenna_final.tmx"
+        "scripts/world/maps/sewer_1.tmx",
+        "scripts/world/tilesets/sewer.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

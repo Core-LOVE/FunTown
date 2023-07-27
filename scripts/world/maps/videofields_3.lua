@@ -13,6 +13,7 @@ return {
   nextobjectid = 30,
   backgroundcolor = { 241, 89, 40 },
   properties = {
+    ["music"] = "videofields",
     ["name"] = "Videofields - Entrance"
   },
   tilesets = {
@@ -818,19 +819,6 @@ return {
             ["map"] = "videofields_4",
             ["marker"] = "1"
           }
-        },
-        {
-          id = 29,
-          name = "ballon",
-          type = "",
-          shape = "point",
-          x = 440,
-          y = 800,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
         }
       }
     }

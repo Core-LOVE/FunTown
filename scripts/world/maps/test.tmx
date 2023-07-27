@@ -57,7 +57,7 @@
   </object>
   <object id="15" name="npc" x="80" y="200">
    <properties>
-    <property name="actor" value="fizzota"/>
+    <property name="actor" value="eternal_lumia"/>
    </properties>
    <point/>
   </object>
