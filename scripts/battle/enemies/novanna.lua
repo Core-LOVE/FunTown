@@ -39,9 +39,9 @@ function MyEnemy:init()
     -- self:registerAct("DualHeal", "Heals\neveryone", "ralsei", 50)
 	
     self.waves = {
-        -- "novanna/bedjump",
+        "novanna/bedjump",
 		"novanna/rainbow",
-		-- "novanna/twitter",
+		"novanna/twitter",
 	}
 	
 	self.spare_points = 5
@@ -65,13 +65,12 @@ function MyEnemy:getEnemyDialogue()
     local dialogue
 	
 	dialogue = {
-		"BIG CHUNGUS",
-		-- "kris, susie uwu\ni understand how\nhard it is to give up",
-		-- {"but don't you\nget it? ;-;", "toriel would be happier\nwith my daddy!!"},
-		-- {"sad and broken...", "don't you want\nto make your mommy happier?"},
-		-- "they would create\na new world...\ntogether!! uwu",
-		-- "a world where happiness\nknows no bounds!! ;w;",
-		-- {"but if you wish\nto continue resisting...", "i will continue\nto fight back!!"}
+		"kris, susie uwu\ni understand how\nhard it is to give up",
+		{"but don't you\nget it? ;-;", "toriel would be happier\nwith my daddy!!"},
+		{"sad and broken...", "don't you want\nto make your mommy happier?"},
+		"they would create\na new world...\ntogether!! uwu",
+		"a world where happiness\nknows no bounds!! ;w;",
+		{"but if you wish\nto continue resisting...", "i will continue\nto fight back!!"}
 	}
 	
 	self.dialogue = (self.dialogue + 1)

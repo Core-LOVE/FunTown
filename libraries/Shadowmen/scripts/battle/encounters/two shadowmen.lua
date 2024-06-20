@@ -4,6 +4,7 @@ function MyEncounter:init()
     super:init(self)
 	
     local enemy = self:addEnemy("shadowmen")
+	enemy.x = enemy.x + enemy.width * .25
 	enemy.y = enemy.y + enemy.height * .5
 	
 	do

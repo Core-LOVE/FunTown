@@ -33,7 +33,7 @@ function MyWave:init()
 	
 	self.icon = Assets.getTexture("battle/lumia/" .. self.mode)
 	
-	self.time = -1
+	self.time = 6.4
     self.enemies = self:getAttackers()
 end
 

@@ -52,10 +52,10 @@ local function generateWave(self, enemy)
 	wave.curve = love.math.newBezierCurve{
 		x, y,
 		x - 32, arena:getTop(),
-		arena:getRight(), soul.y,
-		soul.x, soul.y,
-		soul.x - 32, soul.y,
-		soul.x - 64, arena:getBottom() + 80,
+		arena:getRight(), soul.y + 24,
+		soul.x - 24, soul.y - 6,
+		soul.x - 56, soul.y - 24,
+		soul.x - 72, arena:getBottom() + 80,
 		soul.x - 128, arena:getBottom() + 64,
 		128, midY,
 		0, 180,
@@ -73,6 +73,9 @@ local function generateWave(self, enemy)
 		local seg = wave.curve:renderSegment(0, 0.1, 10)
 		seg.color = {1, 0, 0, 1}
 		
+		local dx,dy = wave.derivative:evaluate(wave.segment)
+		seg.angle = math.atan2(dy,dx) + (math.pi * .5)
+				
 		table.insert(wave.segments, seg)
 		self.timer:tween(0.25, seg, {color = {0.5, 0.5, 0.5}})
 	
@@ -82,6 +85,10 @@ local function generateWave(self, enemy)
 			if wave.segment + 0.1 <= 1 then
 				local seg = wave.curve:renderSegment(wave.segment, wave.segment + 0.1, 10)
 				seg.color = {1, 0, 0, 1}
+			
+				local dx,dy = wave.derivative:evaluate(wave.segment)
+				seg.angle = math.atan2(dy,dx) + (math.pi * .5)
+				
 				self.timer:tween(0.25, seg, {color = {0.5, 0.5, 0.5, 1}})
 	
 				table.insert(wave.segments, seg)
@@ -100,7 +107,7 @@ local function generateWave(self, enemy)
 			
 		for i = 1, 9 do
 			spawnNote(self, wave, enemy)
-			wait(0.05)
+			wait(0.056)
 		end
 
 		for k,seg in ipairs(wave.segments) do
@@ -164,25 +171,51 @@ local function drawCurve(wave)
 	local segmentCount = #wave.segments
 	
 	for k,segment in ipairs(wave.segments) do
-		local maxDiv = k * .85
-		local div = 3 + maxDiv
-		
-		if maxDiv > 5 then
-			maxDiv = 5
+		local maxDiv = k * .8
+
+		if maxDiv > 2 then
+			maxDiv = 2
 		end
+		
+		local div = 4 + maxDiv
 		
 		love.graphics.setColor(segment.color)
-		
 		love.graphics.translate(0, -(div * 4.8))
+
+		local cos = -math.cos(segment.angle) * 24
+		local sin = math.sin(segment.angle)
 		
+		-- if k == #wave.segments then
+			-- for k, other in ipairs(segment.others) do
+				-- love.graphics.translate(0, div)
+				-- love.graphics.line(other)
+			-- end
+		-- else
+		
+		local ox = cos / 5
+		
+		love.graphics.line(segment[1], segment[2] + div, segment[1] + cos, segment[2] + (div * 5))
+			
 		for i = 1, 5 do
 			love.graphics.translate(0, div)
-			love.graphics.line(segment)
 			
-			if i == 1 then
-				love.graphics.line(segment[1], segment[2], segment[1], segment[2] + (div * 4))	
-			end
+			love.graphics.line(segment)
 		end
+		-- end
+		
+		-- local dx,dy = derivative:evaluate(wave.segment)
+		
+		-- local cos = math.cos(segment.angle) * 24
+		-- local sin = math.sin(segment.angle) * 24
+
+		-- for i = 1, 5 do
+			-- love.graphics.translate(-cos / 5, div)
+			-- love.graphics.line(segment)
+		-- end
+		
+		-- if i == 1 then
+			-- love.graphics.line(segment[1], segment[2], segment[1] + ox, segment[2] + (div * 4))	
+		-- end
 	end
 		
 	love.graphics.pop()

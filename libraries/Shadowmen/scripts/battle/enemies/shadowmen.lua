@@ -69,7 +69,7 @@ function MyEnemy:init()
 	self.low_health_text = Kristal.getLibConfig("shadowmen", "low_health_text")
 	
 	self:registerAct(Kristal.getLibConfig("shadowmen", "act_name"))
-    self:registerAct(Kristal.getLibConfig("shadowmen", "act_name") .. "X", "", "all")
+	self:registerAct(Kristal.getLibConfig("shadowmen", "act_name") .. "X", "", "all")
 	
 	local socks = Sprite("npcs/shadowmen/socks", self.width * .5, self.height * .5)
 	socks.visible = false
@@ -86,7 +86,7 @@ function MyEnemy:init()
 end
 
 function MyEnemy:onActStart(battler, name)
-	if name ~= "PointHeartsX" then
+	if name ~= (Kristal.getLibConfig("shadowmen", "act_name") .. "X") then
 		return super.onActStart(self, battler, name)
 	else
 		return Game.battle:startActCutscene("shadowmen", "point_hearts_x")

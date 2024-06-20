@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.0",
+  tiledversion = "1.10.1",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -61,99 +61,19 @@ return {
       properties = {},
       objects = {
         {
-          id = 2,
-          name = "savepoint",
-          type = "",
-          shape = "point",
-          x = 120,
-          y = 80,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 4,
-          name = "Shadowmen",
-          type = "npc",
-          shape = "point",
-          x = 560,
-          y = 160,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "shadowmen",
-            ["animation"] = "pullsocks",
-            ["cutscene"] = "shadowmen_scream"
-          }
-        },
-        {
-          id = 7,
-          name = "Shadowmen",
-          type = "npc",
-          shape = "point",
-          x = 560,
-          y = 240,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "shadowmen",
-            ["animation"] = "pullsocks",
-            ["cutscene"] = "shadowmen_scream"
-          }
-        },
-        {
-          id = 8,
-          name = "Shadowmen",
-          type = "npc",
-          shape = "point",
-          x = 560,
-          y = 320,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "shadowmen",
-            ["animation"] = "pullsocks",
-            ["cutscene"] = "shadowmen_scream"
-          }
-        },
-        {
-          id = 11,
-          name = "Shadowmen",
-          type = "npc",
-          shape = "point",
-          x = 560,
-          y = 400,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "shadowmen",
-            ["animation"] = "pullsocks",
-            ["cutscene"] = "shadowmen_scream"
-          }
-        },
-        {
           id = 15,
           name = "npc",
           type = "",
           shape = "point",
-          x = 80,
-          y = 200,
+          x = 320,
+          y = 120,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           properties = {
-            ["actor"] = "eternal_lumia"
+            ["actor"] = "witchdoctor",
+            ["cutscene"] = "witchdoctor/test"
           }
         }
       }

@@ -22,8 +22,8 @@ end
 	-- self.socks.anim_routine = self.anim_routine
 -- end
 
-function MyObject:draw()
-	self.socks:draw()
-end
+-- function MyObject:draw()
+	-- self.socks:draw()
+-- end
 
 return MyObject

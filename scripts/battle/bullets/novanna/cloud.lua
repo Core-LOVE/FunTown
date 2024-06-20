@@ -70,7 +70,7 @@ function MyBullet:init(x, y, size)
 			
 			table.insert(self.wave.rainbows, rainbow)
 			
-			local time = 0.6
+			local time = 0.9
 			
 			t:tween(time, rainbow, {seg = 1}, 'in-out-sine', function()
 				for k, bullet in ipairs(rainbow.bullets) do

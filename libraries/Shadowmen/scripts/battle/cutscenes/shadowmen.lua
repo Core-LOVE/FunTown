@@ -63,7 +63,7 @@ return {
 		}
 		
 		local function getSpriteAndOffset(id)
-			local selected_sprite = "party/" .. id .. "/dark/thriller"
+			local selected_sprite = "party/" .. id .. "/dark/battle/thriller"
 			local selected_offset = offsets[id] or {0, 0}
 			return selected_sprite, selected_offset[1], selected_offset[2]
 		end
@@ -79,7 +79,7 @@ return {
 			self.parent:addChild(flash)
 
 			local afterimage1 = AfterImage(self, 0.7)
-			local afterimage2 = AfterImage(self, 0.9)
+			local afterimage2 = AfterImage(self, 0.96)
 			afterimage1.physics.speed_x = 4
 			afterimage2.physics.speed_x = 2
 
@@ -94,19 +94,18 @@ return {
 		local mark = Sprite("player/mark", 0, 240)
 		mark:setOrigin(0.5)
 		mark:setScale(4)
-		mark.alpha = 0
+		mark.alpha = -0.5
 		mark.rotation = math.rad(270 + 270)
 		
 		local timer = Timer()
 		Game.battle:addChild(timer)
 		Game.battle:addChild(mark)
 		
-		local t = 1.25
+		local t = 0.96
 		
 		for _,ibattler in ipairs(Game.battle.party) do
-			local texture, x, y = getSpriteAndOffset(ibattler.chara.id)
-
-			setActSprite(ibattler, texture, x, y)
+				local texture, x, y = getSpriteAndOffset(ibattler.chara.id)
+				setActSprite(ibattler, texture, x, y)
 		end
 		
 		-- do
@@ -187,7 +186,7 @@ return {
 			end
 			
 			while continueAct do
-				rot = rot + 0.075
+				rot = (rot + 0.075 * DTMULT)
 				
 				for k,enemy in ipairs(enemies) do
 					enemy.physics.speed_x = math.cos(rot) * ((k % 2 == 0 and -1) or 1) * 3
@@ -217,7 +216,7 @@ return {
 
 					Game.battle:addChild(socks)
 				elseif socks.hit <= count and socks.hit ~= 0 then
-					enemy:addMercy(50)
+					enemy:addMercy(math.min(math.ceil(100/ (count/socks.hit)),99))
 				end
 				
 				socks.visible = false

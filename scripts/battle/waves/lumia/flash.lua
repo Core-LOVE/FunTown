@@ -15,8 +15,21 @@ function MyWave:onStart()
 		for k,enemy in ipairs(self:getAttackers()) do
 			enemy:setAnimation('on')
 			
+			wait(.1)
+			
 			self.timer:every(.75, function()
 				enemy:cam_flash()
+				
+				local bullet = self:spawnBullet("lumia/bird", enemy.x - 8, enemy.y - (enemy.height) - 22)
+				bullet.movement = function()
+					bullet.physics.speed_x = -4
+
+					bullet.sinTimer = bullet.sinTimer or 0
+					bullet.sinTimer = bullet.sinTimer + 1
+
+					local sinSpeed = math.cos(bullet.sinTimer / 2) * (bullet.sinTimer / 7.5)
+					bullet.y = bullet.y + (bullet.sinSpeed * bullet.sinDir)
+				end
 			end)
 			
 			wait(.1)

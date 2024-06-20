@@ -19,7 +19,7 @@ end
 function MyEncounter:init()
     super:init(self)
 	
-	spawnLumia(self, 525, 280)
+	spawnLumia(self, 525, 230)
 	-- spawnLumia(self)
 	-- spawnLumia(self)
 	-- spawnLumia(self)
@@ -27,5 +27,9 @@ function MyEncounter:init()
     self.text = "* Everything is sparkling with magic!\n[wait:4]Or is it..."
 	self.music = "shenanigans"
 end
+
+-- function MyEncounter:createSoul()
+	-- return GreenSoul()
+-- end
 
 return MyEncounter

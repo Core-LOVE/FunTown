@@ -1,0 +1,20 @@
+{
+    "id": "greensoul",
+    "authors": [
+        "Core"
+    ],
+    "version": "v1.0.0",
+    "engineVer": "v0.7.1",
+	
+    "config": {
+		"diagonal": true,
+		"side": "up",
+		
+		"rotationSpeed": 0.36,
+		"rotationStyle": "outQuart",
+		
+        "circleColor": [0, 0.5, 0],
+		
+		"blinkTimer": 4
+    }
+}

@@ -42,6 +42,10 @@ function MyEnemy:init()
 		"* Grand Illusions are coming.",
     }
 	
+	self.dialogue_text = {
+		{"WELL KRISsS!\n[wait:2]GLAD TO SEE YOU!", "... AGAIN."},
+	}
+	
 	self.dialogue = 0
 end
 
@@ -70,10 +74,8 @@ function MyEnemy:getEnemyDialogue()
         return dialogue
     end
 
-	local dialogue = {
-		{"WELL KRISsS!\n[wait:2]GLAD TO SEE YOU!", "... AGAIN."},
-		
-	}
+	local dialogue = self.dialogue_text
+	
 	self.dialogue = self.dialogue + 1
 	
 	if self.dialogue > #dialogue then
@@ -90,12 +92,12 @@ function MyEnemy:getEnemyDialogue()
         -- }
     -- end
 	
-    return dialogue[math.random(#dialogue)]
+    return dialogue[self.dialogue]
 end
 
 function MyEnemy:cam_flash()
 	local t = Timer()
-	local effect = Sprite("effects/sparkle", (self.width * .5) + 6, (self.height * .5) - 15)
+	local effect = Sprite("effects/sparkle", (self.width * .5) + 6, (self.height * .5))
 	effect:fadeOutAndRemove(.5)
 	effect:setOrigin(1, 1)
 	effect:setScale(2)

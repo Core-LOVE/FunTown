@@ -5,6 +5,7 @@ function MyWave:init()
 	
 	self.time = 8
     self.enemies = self:getAttackers()
+    self.shoots = {}
 end
 
 local function update(self, wait, enemy)
@@ -32,16 +33,14 @@ local function update(self, wait, enemy)
 		shoot.rotation = gun.rotation
 		shoot.layer = 8999
 		
-		local t = Timer()
-		
-		t:script(function(wait)
+		self.timer:script(function(wait)
 			wait()
 			wait()
 			wait()
 			shoot:remove()
 		end)
 		
-		shoot:addChild(t)
+        table.insert(self.shoots, shoot)
 		Game.battle:addChild(shoot)
 		
 		-- local bullet = self:spawnBullet("shadowmen/bullet", x, y)
@@ -77,6 +76,9 @@ function MyWave:onStart()
 end
 
 function MyWave:onEnd()
+    for _,shoot in ipairs(self.shoots) do
+        shoot:remove()
+    end
 	for _, enemy in ipairs(self.enemies) do
 		enemy:setAnimation("prepare")
 		

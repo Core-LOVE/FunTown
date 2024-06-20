@@ -71,6 +71,8 @@ function RibbonTrail:draw()
 
 	local points = self.points
 	
+	love.graphics.setColor(self.color[1], self.color[2], self.color[3], self.alpha)
+
 	for k = 1, #points do
 		local point1 = points[k]
 		local point2 = points[k + 1]

@@ -7,7 +7,7 @@ function actor:init()
 
     -- Width and height for this actor, used to determine its center
     self.width = 31
-    self.height = 78
+    self.height = 50
 
     -- Hitbox for this actor in the overworld (optional, uses width and height by default)
 	local yoffset = self.height * .8
@@ -27,6 +27,7 @@ function actor:init()
         ["idle"] = {"idle"},
 		
         ["battle/idle"] = {"battle/idle", 0.075, true},
+		["dark/idle"] = {"dark/idle", 0.15, true},
 		
 		["on"] = {"on/on", 0.075, false},
 		["off"] = {"off/off", 0.075, false, next = 'battle/idle'},

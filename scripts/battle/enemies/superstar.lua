@@ -22,7 +22,7 @@ function MyEnemy:init()
     -- self:registerAct("DualHeal", "Heals\neveryone", "ralsei", 50)
 	
     self.waves = {
-		"superstar/stars",
+		"superstar/money",
         -- "drawgon/flames",
 		-- "drawgon/draw",
 	}

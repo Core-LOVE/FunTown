@@ -32,7 +32,7 @@ function MyWave:onStart()
 		
 	self:spawnRainbow()
 		
-	self.timer:every(1, function()
+	self.timer:every(1.32, function()
 		self:spawnRainbow()
 	end)
 	

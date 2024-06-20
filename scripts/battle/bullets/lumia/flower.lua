@@ -1,6 +1,10 @@
 local id = "lumia/flower"
 local MyBullet, super = Class(Bullet, id)
 
+function MyBullet:onWaveSpawn(wave) 
+	self.wave = wave
+end
+
 function MyBullet:init(x, y)
     super:init(self, x, y)
 
@@ -19,9 +23,9 @@ function MyBullet:init(x, y)
 	
 	local t = Timer()
 	
-	t:every(.35, function()
+	t:every(.32, function()
 		local bullet = self.wave:spawnBullet('lumia/petal', self.x - 20, self.y + math.random(-71, 71))
-		bullet.physics.speed_x = -math.random(5, 8)
+		bullet.physics.speed_x = -math.random(6, 9)
 		bullet.graphics.spin = bullet.physics.speed_x / 24
 	end)
 	
@@ -34,11 +38,14 @@ function MyBullet:init(x, y)
 			effect:setScale(2)
 			effect.alpha = 0.25
 			effect.layer = BATTLE_LAYERS["above_arena"]
+			
 			t:tween(.5, effect, {alpha = 0, x = effect.x - 32}, 'in-out-sine', function()
 				effect:remove()
 			end)
 			
-			Game.battle:addChild(effect)
+			if self.wave then
+				self.wave:addChild(effect)
+			end
 			
 			for i = 1, 2 do
 				local effect = Sprite("effects/wind", self.x - 71, self.y + math.random(-71, 71))
@@ -51,7 +58,9 @@ function MyBullet:init(x, y)
 					effect:remove()
 				end)
 				
-				Game.battle:addChild(effect)
+				if self.wave then
+					self.wave:addChild(effect)
+				end
 				
 				wait(.05)
 			end

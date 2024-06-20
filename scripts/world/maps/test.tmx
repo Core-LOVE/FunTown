@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="3" nextobjectid="18">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="3" nextobjectid="18">
  <editorsettings>
   <export target="test.lua" format="lua"/>
  </editorsettings>
@@ -20,44 +20,10 @@
 </data>
  </layer>
  <objectgroup id="2" name="objects">
-  <object id="2" name="savepoint" x="120" y="80">
-   <point/>
-  </object>
-  <object id="4" name="Shadowmen" type="npc" x="560" y="160">
+  <object id="15" name="npc" x="320" y="120">
    <properties>
-    <property name="actor" value="shadowmen"/>
-    <property name="animation" value="pullsocks"/>
-    <property name="cutscene" value="shadowmen_scream"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="7" name="Shadowmen" type="npc" x="560" y="240">
-   <properties>
-    <property name="actor" value="shadowmen"/>
-    <property name="animation" value="pullsocks"/>
-    <property name="cutscene" value="shadowmen_scream"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="8" name="Shadowmen" type="npc" x="560" y="320">
-   <properties>
-    <property name="actor" value="shadowmen"/>
-    <property name="animation" value="pullsocks"/>
-    <property name="cutscene" value="shadowmen_scream"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="11" name="Shadowmen" type="npc" x="560" y="400">
-   <properties>
-    <property name="actor" value="shadowmen"/>
-    <property name="animation" value="pullsocks"/>
-    <property name="cutscene" value="shadowmen_scream"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="15" name="npc" x="80" y="200">
-   <properties>
-    <property name="actor" value="eternal_lumia"/>
+    <property name="actor" value="witchdoctor"/>
+    <property name="cutscene" value="witchdoctor/test"/>
    </properties>
    <point/>
   </object>

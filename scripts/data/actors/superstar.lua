@@ -21,12 +21,10 @@ function actor:init()
     self.default = "idle"
 	
     self.animations = {
-        ["idle"] = {"idle", 0.15, true},
+        ["idle"] = {"idle", 0.09, true, frames = {1, 1, 1, 2, 2, 3, 4}},
         ["hurt"] = {"hurt", 0.5, true},
 		["spared"] = {"spared", 0.15, true},
 	}	
-	
-	self.timer = 0
 end
 
 return actor

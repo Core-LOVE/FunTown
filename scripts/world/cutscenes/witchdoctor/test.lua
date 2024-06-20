@@ -1,0 +1,33 @@
+return function(cutscene, event, player, facing)
+    local kris = cutscene:getCharacter("kris")
+    local susie = cutscene:getCharacter("susie")
+    local ralsei = cutscene:getCharacter("ralsei")
+    local witchdoctor = cutscene:getCharacter("witchdoctor")
+	
+	cutscene:text("* Umm...[wait:4] WHO THE HELL ARE YOU?!", "blush", witchdoctor)
+	cutscene:text("* ... What do you mean by I DON'T KNOW YOU??", "blush", witchdoctor)
+	cutscene:text("* I'm Witchdoctor![wait:8] Son of The Father![wait:8] Y' know that guy,[wait:4] right?", "annoyed", witchdoctor)
+	cutscene:text("* ...", "annoyed", witchdoctor)
+	cutscene:text("* ... Oh sorry,[wait:4] this isn't a right tone at all,[wait:4] isn't it?", "blush", witchdoctor)
+	cutscene:text("* Ahem.", "calm", witchdoctor)
+	cutscene:text("* My name is Witchdoctor.[wait:8] I patrol this world and blah-blah-blah!", "normal", witchdoctor)
+	cutscene:text("* Don't take me like some serious guy,[wait:4] ok?", "calm", witchdoctor)
+	cutscene:text("* Imagine me as a friend,[wait:4] who's gonna drink that adult juice with ya!", "perfect", witchdoctor)
+	cutscene:text("* I'm not like my stupid religious father.", "annoyed", witchdoctor)
+	cutscene:text("* I don't like.[wait:8] PRAY for some Knight and stuff.", "annoyed", witchdoctor)
+	cutscene:text("* You may have a lot of questions in your head, dontcha?", "annoyed", witchdoctor)
+	cutscene:text('* "Why his name is Witchdoctor?"', "annoyed", witchdoctor)
+	cutscene:text('* "Why he wears Witchdoctor skull and stuff?"', "annoyed", witchdoctor)
+	cutscene:text("* The answer is quite simple actually.", "calm", witchdoctor)
+	cutscene:text("* Juuust a part of my style!", "wink", witchdoctor)
+	cutscene:text("* I'm a free person![wait:8] Free from this religious shit!", "laugh", witchdoctor)
+	cutscene:text("* ... Oh no.", "fuck", witchdoctor)	
+	cutscene:text("* I think[wait:8] I've said it out loud,[wait:4] didn't I?", "fuck", witchdoctor)	
+	cutscene:text("* Well,[wait:4] goodbye then,[wait:4] random blue person!", "fuck", witchdoctor)	
+	
+	witchdoctor:explode()
+	
+	cutscene:wait(4)
+	
+	kris:explode()
+end

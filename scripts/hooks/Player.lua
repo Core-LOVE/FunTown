@@ -2,7 +2,7 @@ local Player, super = Class(Player)
 
 function Player:updateBallon()
     if not self:isMovementEnabled() then return end
-
+	
 	local accel = 0.35
 	local gravity = 0.075
 	
@@ -17,6 +17,13 @@ function Player:updateBallon()
 	self.physics.speed_y = Utils.clamp(self.physics.speed_y, -8, 8)
 end
 
+function Player:endBallon()
+	self.physics.speed_x = 0
+	self.physics.speed_y = 0
+	
+	self.noclip = false
+end
+
 function Player:beginBallon()
 	self.noclip = true
 	
@@ -26,7 +33,7 @@ end
 function Player:init(...)
 	super.init(self, ...)
 	
-    self.state_manager:addState("BALLON", {update = self.updateBallon, enter = self.beginBallon})
+    self.state_manager:addState("BALLON", {update = self.updateBallon, enter = self.beginBallon, leave = self.endBallon})
 	
 	self.slide_texture = "effects/slide_dust"
 end

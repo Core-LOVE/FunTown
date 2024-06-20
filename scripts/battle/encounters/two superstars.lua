@@ -6,7 +6,7 @@ function MyEncounter:init()
     self:addEnemy("superstar")
     self:addEnemy("superstar")
 	
-    self.text = "* Everyobdy wanna be a superstar!"
+    self.text = "* Everybody wanna be a superstar!"
 end
 
 return MyEncounter
