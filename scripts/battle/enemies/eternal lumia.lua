@@ -144,11 +144,11 @@ function MyEnemy:init()
 		-- "eternal_lumia/beginning",
 		-- "eternal_lumia/mirrors",
 		-- "eternal_lumia/carousel",
-		"eternal_lumia/bounce",
+		-- "eternal_lumia/bounce",
 		-- "eternal_lumia/rockets",		
 		-- "eternal_lumia/carousel_hard",
 		-- "eternal_lumia/ball",
-		-- "eternal_lumia/final",
+		"eternal_lumia/final",
 	}
 	
 	self.random_waves = self.waves

@@ -23,7 +23,8 @@ function MyEnemy:init()
 	
     self.waves = {
 		-- "lumia/ball",
-		"lumia/flash",
+		-- "lumia/flash",
+		"lumia/trains"
 	}
 	
 	self.exit_on_defeat = false
