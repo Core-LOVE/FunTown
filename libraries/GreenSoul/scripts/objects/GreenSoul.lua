@@ -106,7 +106,7 @@ function GreenSoul:init(x, y)
 	self:addChild(self._t)
 	self:addChild(self.timer)
 
-	self.canSwipe = true
+	self.canSwipe = false
 	self.swipeTimerMax = 16
 	self.swipeTimer = self.swipeTimerMax
 end
@@ -320,7 +320,7 @@ function GreenSoul:update()
 	
 	self.usingAbility = false
 	
-	if not self.canSwipe then return end
+	-- if not self.canSwipe then return end
 
 	for _, key in ipairs(self.rotationSidesIterator) do
 		if inputCheck(self, key) then

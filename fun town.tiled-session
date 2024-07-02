@@ -5,10 +5,10 @@
     },
     "activeFile": "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx",
     "expandedProjectPaths": [
-        "scripts/world",
-        "scripts",
+        ".",
         "scripts/world/maps",
-        "."
+        "scripts",
+        "scripts/world"
     ],
     "file.lastUsedOpenFilter": "Все файлы (*)",
     "fileStates": {
@@ -68,12 +68,24 @@
             "scale": 1.3107031249999999,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 318.5313226440961,
-                "y": 238.04017404780356
+                "x": 319.67574655778753,
+                "y": 239.94754723728917
             }
         },
         "D:/Engines/Kristal-0.8.0/mods/andromedia/scripts/world/tilesets/pillars.tsx": {
             "scaleInDock": 1
+        },
+        "scripts/world/maps/abandoned_scene/data.tmx": {
+            "expandedObjectLayers": [
+                3,
+                4
+            ],
+            "scale": 0.75,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 434,
+                "y": 725.3333333333333
+            }
         },
         "scripts/world/maps/castletown_fountain/data.tmx": {
             "scale": 1.3107031249999999,
@@ -87,8 +99,8 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 318.5,
-                "y": 238
+                "x": 319.5,
+                "y": 239.5
             }
         },
         "scripts/world/maps/curly_meeting.tmx": {
@@ -136,14 +148,14 @@
         },
         "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx": {
             "expandedObjectLayers": [
-                2,
-                5
+                5,
+                2
             ],
             "scale": 0.75,
-            "selectedLayer": 4,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 1162,
-                "y": 310.66666666666663
+                "x": 678,
+                "y": 229.33333333333331
             }
         },
         "scripts/world/maps/homewoods_tenna.tmx": {
@@ -243,6 +255,10 @@
                 "y": 539.3333333333334
             }
         },
+        "scripts/world/tilesets/abandoned_scene.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
         "scripts/world/tilesets/funtheatre.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 0.75,
@@ -271,7 +287,7 @@
     "last.externalTilesetPath": "D:/Engines/Kristal-0.8.0/mods/FunTown/scripts/world/tilesets",
     "last.imagePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/assets/sprites/tilesets",
     "lastUsedTilesetExportFilter": "Lua файлы (*.lua)",
-    "map.height": 12,
+    "map.height": 24,
     "map.lastUsedExportFilter": "Lua файлы (*.lua)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 40,
@@ -281,8 +297,7 @@
         "scripts/world/maps/curly machine/data.tmx",
         "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/debug.tmx",
         "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/trochum_ex/data.tmx",
-        "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx",
-        "D:/Engines/Kristal-0.8.0/mods/andromedia/scripts/world/maps/ch4/pillars/start/start.tmx"
+        "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx"
     ],
     "project": "fun town.tiled-project",
     "property.type": "string",
@@ -290,15 +305,15 @@
         "scripts/world/maps/curly machine/data.tmx",
         "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/debug.tmx",
         "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/trochum_ex/data.tmx",
-        "D:/Engines/Kristal-0.8.0/mods/andromedia/scripts/world/maps/ch4/pillars/start/start.tmx",
         "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx",
+        "scripts/world/tilesets/abandoned_scene.tsx",
+        "D:/Engines/Kristal-0.8.0/mods/andromedia/scripts/world/maps/ch4/pillars/start/start.tmx",
+        "scripts/world/maps/abandoned_scene/data.tmx",
         "scripts/world/tilesets/homewoods.tsx",
         "scripts/world/maps/castletown_fountain/data.tmx",
         "scripts/world/maps/test.tmx",
         "scripts/world/maps/curly_meeting.tmx",
-        "scripts/world/maps/homewoods_test.tmx",
-        "scripts/world/maps/videofields_4.tmx",
-        "scripts/world/maps/videofields_3.tmx"
+        "scripts/world/maps/homewoods_test.tmx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",

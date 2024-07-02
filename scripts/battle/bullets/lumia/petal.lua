@@ -6,7 +6,11 @@ function MyBullet:init(x, y, size)
 
     self:setSprite("bullets/" .. id, 4 / 60, true)
 	
-    self:setHitbox(6, 6, 6, 6)
+	local hitbox_w, hitbox_h = 4, 4
+	local hitbox_x, hitbox_y = (12 - hitbox_w) * .5, (12 - hitbox_h) * .5
+
+    self:setHitbox(hitbox_x, hitbox_y, hitbox_w, hitbox_h)
+    
 	self.graphics.spin = 0.125
 	self.alpha = 0.1
 	

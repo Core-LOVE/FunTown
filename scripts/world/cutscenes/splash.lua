@@ -87,11 +87,14 @@ return {
 		logo:addChild(eternal_lumia)
 
 		local menu = Object(48, 176)
+		menu.can_confirm = true
 		menu.index = 0
 		menu.max = 0
 		menu.actions = {}
 
 		menu.actions[1] = function()
+			menu.can_confirm = false
+
 			Game.world.music:fade(0, 0.5)
 			timer:tween(1, parent, {y = parent.y + 48, alpha = 0}, 'in-sine', function()
 				timer:after(1, function()
@@ -102,9 +105,23 @@ return {
 			end)
 		end
 
+		menu.actions[2] = function()
+			menu.can_confirm = false
+
+			Game.world.music:fade(0, 0.5)
+			timer:tween(1, parent, {y = parent.y + 48, alpha = 0}, 'in-sine', function()
+				timer:after(1, function()
+					cutscene:loadMap("abandoned_scene")
+					black:remove()
+					end_cutscene = true
+				end)
+			end)
+		end
+
 		local options = {
 			Text("Encounter Bossfight", 0, 0),
 			Text("Secret Bossfight", 0, 0),
+			Text("Options", 0, 0),	
 			Text("Credits", 0, 0),	
 			Text("Quit", 0, 0),			
 		}
@@ -150,7 +167,7 @@ return {
 				if menu.index < 0 then menu.index = menu.max - 1 end
 			end
 
-			if Input.pressed("confirm") then
+			if Input.pressed("confirm") and menu.can_confirm then
 				Assets.playSound("ui_select")
 
 				local action = menu.actions[menu.index + 1]

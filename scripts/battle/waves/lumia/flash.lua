@@ -6,7 +6,7 @@ function MyWave:init()
 	-- self.arena_height = 128
 	-- self.arena_width = self.arena_height + self.arena_height
 	
-	self.time = -1
+	self.time = 7.5
     self.enemies = self:getAttackers()
 end
 
@@ -19,22 +19,29 @@ function MyWave:onStart()
 			
 			local sinDir = 1
 
-			self.timer:every(.75, function()
+			self.timer:every(.8, function()
 				enemy:cam_flash()
 				
-				local bullet = self:spawnBullet("lumia/bird", enemy.x - 8, enemy.y - (enemy.height) - 22)
-				bullet.sinDir = sinDir
-				bullet.movement = function()
-					bullet.physics.speed_x = -4
+				self.timer:script(function(wait)
+					for i = 3, 1, -1 do
+						local mult = (i * .75)
 
-					bullet.sinTimer = bullet.sinTimer or 0
-					bullet.sinTimer = bullet.sinTimer + 1
+						local bullet = self:spawnBullet("lumia/bird", enemy.x - 8, enemy.y - (enemy.height) - 22)
+						bullet.sinDir = sinDir
+						bullet.movement = function()
+							bullet.physics.speed = 5
 
-					local sinSpeed = math.cos(bullet.sinTimer / 2) * (bullet.sinTimer / 7.5)
-					bullet.y = bullet.y + (sinSpeed * bullet.sinDir)
-				end
+							bullet.sinTimer = bullet.sinTimer or 0
+							bullet.sinTimer = bullet.sinTimer + 1
 
-				sinDir = -sinDir
+							local sinSpeed = math.cos(bullet.sinTimer * .5) * (bullet.sinTimer / 7.5)
+							bullet.y = bullet.y + (sinSpeed * (bullet.sinDir * mult))
+						end
+
+						sinDir = -sinDir
+						wait(0.15)
+					end
+				end)
 			end)
 			
 			wait(.1)

@@ -25,7 +25,7 @@ function MyBullet:init(x, y)
 	
 	t:every(.32, function()
 		local bullet = self.wave:spawnBullet('lumia/petal', self.x - 20, self.y + math.random(-71, 71))
-		bullet.physics.speed_x = -math.random(6, 9)
+		bullet.physics.speed_x = -(math.random(5, 7) + .5)
 		bullet.graphics.spin = bullet.physics.speed_x / 24
 	end)
 	

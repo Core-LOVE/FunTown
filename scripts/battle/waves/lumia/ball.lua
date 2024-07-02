@@ -40,11 +40,11 @@ end
 local modes = {}
 
 modes["water"] = function(self)
-	self.timer:every(.5, function()
-		local arena = Game.battle.arena
+	-- self.timer:every(.5, function()
+	-- 	local arena = Game.battle.arena
 		
-		self:spawnBullet("lumia/waterwave", arena.x, arena.y)
-	end)
+	-- 	self:spawnBullet("lumia/waterwave", arena.x, arena.y)
+	-- end)
 end
 
 modes['fire'] = function(self)

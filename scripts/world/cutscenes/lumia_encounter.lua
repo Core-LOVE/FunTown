@@ -7,6 +7,9 @@ return function(cutscene, event, player, facing)
     cutscene:detachCamera()
 	cutscene:setTextboxTop(false)
 	
+	local lumia = cutscene:spawnNPC("lumia", 660 + 480, 310)
+	lumia:setSprite('ghost')
+
 	do
 		local t = 1
 		local x = 660
@@ -23,10 +26,16 @@ return function(cutscene, event, player, facing)
 		cutscene:walkTo(ralsei, x, y - (kris.height * 1), t, nil, true)
 		cutscene:wait(t + 0.25)
 	end
+
+	local appear_x, appear_y = lumia:getRelativePos(0, 0, lumia)
+	local effect = ReverseNotFatalEffect("npcs/lumia/sad", appear_x, appear_y)
+	effect:setColor(lumia:getDrawColor())
+	effect:setScale(lumia:getScale())
+	effect.layer = lumia.layer + 1
+	lumia.visible = false
 	
-	local lumia = cutscene:spawnNPC("lumia", 660 + 480, 310)
-	lumia:setAnimation('dark/idle')
-	
+	Game.world:addChild(effect)
+
 	cutscene:text("* What a poor world,[wait:4] living in fantasies.", nil, lumia)
 	cutscene:text("* Constantly in hopes of seeing a new light in their life.", nil, lumia)
 	cutscene:text("* A light which will open a gate of new truths and meanings.", nil, lumia)

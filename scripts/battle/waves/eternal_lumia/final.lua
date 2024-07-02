@@ -29,8 +29,6 @@ function MyWave:spawnTrain(x, y)
 	end)
 
 	for i = 1, 9 do
-		local delay = head.physics.speed * .25
-
 		local body = Sprite("battle/eternal lumia/train_body", x - (192 * i), y)
 		body:setScale(2)
 		body.physics.match_rotation = head.physics.match_rotation
@@ -38,6 +36,12 @@ function MyWave:spawnTrain(x, y)
 		body.physics.speed = head.physics.speed
 
 		Utils.hook(body, 'update', function(orig, body, ...)
+			local delay = head.physics.speed * .25
+
+			-- if head.physics.speed == 8 then
+			-- 	delay = 21
+			-- end
+
 			body.physics.speed = head.physics.speed
 			local saved = head.saved[t - math.floor(delay * i)]
 
@@ -69,7 +73,7 @@ function MyWave:spawnTrain(x, y)
 					local x, y = math.cos(rotation) * distance, math.sin(rotation) * distance
 
 					local bullet = self:spawnBullet("eternal lumia/bolt", soul.x + x, soul.y + y, nil, nil, true)
-					bullet.physics.speed = bullet.physics.speed * .25
+					bullet.physics.speed = bullet.physics.speed * .05
 					bullet.damage = 0
 
 					wait(0.25)
@@ -123,13 +127,14 @@ function MyWave:spawnTrain(x, y)
 					soul.x = x
 					soul.y = y
 					soul.rotation = rot
-					soul.shield.additional_rotation = rot
+
+					soul.shield.additional_distance = head.physics.speed
 
 					orig(soul, ...)
 				end)
 
 				Assets.playSound("locker")
-
+				-- head.physics.speed = 8
 				Game.battle:shakeCamera(16, 16)
 			end)		
 		end)

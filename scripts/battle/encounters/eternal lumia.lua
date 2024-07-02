@@ -22,7 +22,7 @@ local function spawnLumia(self, x, y)
 		"* History repeats again.",
 		"* TOO DETERMINED?[wait:6]\nI CAN FIX THAT.",
 		"* Grand Illusions are everywhere.",
-		"* Feels like an utopian show..."
+		"* Feels like an utopian show."
 	}
 	
 	-- Game.battle.enemies[1] = nil 
