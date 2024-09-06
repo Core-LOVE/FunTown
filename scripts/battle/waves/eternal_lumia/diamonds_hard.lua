@@ -18,10 +18,31 @@ end
 function MyWave:init()
 	super:init(self)
 	
-	self.time = -1
+	self.time = 10
 	
 	self:setArenaShape(unpack(shape))
 	self:setArenaOffset(0, 90)
+end
+
+
+local function randomWithStep(first, last, step)
+    local maxSteps = math.floor((last-first)/step)
+    return first + step * math.random(0, maxSteps)
+end
+
+local start_x = 16
+local end_x = 96
+
+local function spawnDiamond(self)
+	local x = randomWithStep(start_x, end_x, 32) + 16
+	local y = SCREEN_HEIGHT - randomWithStep(start_x, 360, 32) - 32
+
+	if math.random() > 0.5 then
+		x = SCREEN_WIDTH - randomWithStep(start_x, end_x, 32) - 16
+	end
+
+	local bullet = self:spawnBullet("eternal lumia/big_diamond", x, y)
+	bullet.slower = true
 end
 
 function MyWave:onStart()
@@ -29,6 +50,16 @@ function MyWave:onStart()
 	local x, y = arena:getTopLeft()
 
 	self.hand = self:spawnBullet("eternal lumia/hand", x, y - 142)
+	self.hand:setScale(1)
+
+	self.timer:tween(0.75, self.hand, {scale_x = 2, scale_y = 2}, 'out-sine', function()
+		spawnDiamond(self)
+
+		self.timer:every(0.78, function()
+			spawnDiamond(self)
+		end)
+	end)
+
 	self._t = 0
 end
 
@@ -44,7 +75,7 @@ function MyWave:draw()
 	x = arena:getCenter()
 	
 	love.graphics.setColor(arena.color)
-	love.graphics.setLineWidth(2)
+	love.graphics.setLineWidth(self.hand.scale_x)
 	love.graphics.line(hand.x + 26, hand.y + 20, x, y)
 end
 
@@ -55,14 +86,14 @@ function MyWave:update()
 	
 	if not hand then return end
 	
-	self._t = self._t + 0.05 * DTMULT
+	self._t = self._t + 0.075 * DTMULT
 	
 	local arena = Game.battle.arena
 	local soul = Game.battle.soul
 	
 	local t = self._t
 	
-	local radius = 4
+	local radius = 3
 
 	local dx = math.cos(t) * radius
 	local dy = math.sin(-t * 2) * (radius * .5)
@@ -73,6 +104,8 @@ function MyWave:update()
 	soul.y = soul.y + dy
 	
 	hand.scale_y = 2 + math.abs(dy) * .05
+	hand.rotation = math.atan2(math.abs(dx), math.abs(dy)) + math.rad(-90)
+	hand.rotation = hand.rotation * .1
 end
 
 return MyWave

@@ -8,11 +8,11 @@ return function(cutscene, event, player, facing)
 	cutscene:setTextboxTop(false)
 	
 	local lumia = cutscene:spawnNPC("lumia", 660 + 480, 310)
-	lumia:setSprite('ghost')
+	lumia:setSprite("cloth")
 
 	do
 		local t = 1
-		local x = 660
+		local x = 680
 		local y = 390
 
 		kris:setFacing('right')
@@ -27,49 +27,100 @@ return function(cutscene, event, player, facing)
 		cutscene:wait(t + 0.25)
 	end
 
-	local appear_x, appear_y = lumia:getRelativePos(0, 0, lumia)
-	local effect = ReverseNotFatalEffect("npcs/lumia/sad", appear_x, appear_y)
-	effect:setColor(lumia:getDrawColor())
-	effect:setScale(lumia:getScale())
-	effect.layer = lumia.layer + 1
-	lumia.visible = false
-	
-	Game.world:addChild(effect)
-
-	cutscene:text("* What a poor world,[wait:4] living in fantasies.", nil, lumia)
-	cutscene:text("* Constantly in hopes of seeing a new light in their life.", nil, lumia)
-	cutscene:text("* A light which will open a gate of new truths and meanings.", nil, lumia)
-	cutscene:text("* ... But worry not,[wait:4] fellow audience.", nil, lumia)
-	cutscene:text("* Because that new light of life is...", nil, lumia)
-	
-	lumia:setAnimation('idle')
-	
-	Game.world.music:play("lumia")
-	
-	cutscene:text("* ME!!![wait:4] LUMIA!!", nil, lumia)
-	cutscene:text("* Uhh... Who the HELL are you?", 'suspicious', susie)
-	
-	Game.world.music:stop()
-	
 	cutscene:wait(0.5)
-	
-	susie:setAnimation('battle/rude_buster')
-	
-	do
-		local rudeBuster = Game.world:spawnObject(RudeBusterBeam(false, susie.x, susie.y - (susie.height * .5), lumia.x, lumia.y - lumia.height))
-		
-		cutscene:wait(.42)
+
+	if not Mod.flags.encounter then
+		cutscene:text("* Uhh...[wait:8] Kris,[wait:4] why did you stop?", 'suspicious', susie)
+		cutscene:text("* Is anything wrong?", 'suspicious', susie)
+		cutscene:text("* Kris,[wait:4] there's nothing on our path...", 'frown_b', ralsei)
 	end
+
+	Assets.playSound("ghostappear", 1, 1.5)
+
+	lumia:shake(2, 0)
+	lumia:setAnimation('appear')
 	
-	lumia:shake(8)
-	lumia:setAnimation('hurt')
-	
-	cutscene:wait(1)
-	lumia:setAnimation('idle')
-	
-	cutscene:text("* OH.", nil, lumia)
-	cutscene:text("* I see now.", nil, lumia)
-	cutscene:text("* WELL,[wait:4] LET'S SsSEE IF YOU FULFILL THE ROLE OF HEROESsS,[wait:6] SsSHALL WE?", nil, lumia)
+	cutscene:wait(0.75)
+
+	if not Mod.flags.encounter then
+		Game.world.music:play("lumia", 1)
+		
+		cutscene:text("* HEY GUYSsS!", nil, lumia)
+		cutscene:text("* MY NAME ISsS[wait:4] LUMIA!", nil, lumia)
+		cutscene:text("* OH RIGHT,[wait:4] HAHAHA,[wait:4] YOUR FRIENDSsS CAN'T SsSEE ME!", nil, lumia)
+		cutscene:text("* HOLD ON.", nil, lumia)
+
+		local old_x, old_y = lumia.x, lumia.y
+
+		cutscene:walkTo(lumia, kris.x + 160, kris.y + 20, 0.5)
+		cutscene:wait(0.5)
+
+		lumia:setAnimation("on")
+
+		cutscene:wait(0.75)
+		Assets.playSound("camera")
+
+		cutscene:wait(0.75)
+
+		lumia:setAnimation("world_off")
+
+		cutscene:wait(0.5)
+
+		cutscene:text("* HAHA!! GOLLY,[wait:4] YOUR FACE IS SO FUNNY ON THIS PHOTO!", nil, lumia)
+		cutscene:text("* ANYWAYSsS", nil, lumia)
+
+		cutscene:walkTo(lumia, old_x, old_y, 0.5)
+		cutscene:wait(0.5)
+
+		cutscene:text("* NAME'SsS LUMIA![wait:6] I'M JUST A SIMPLE ILLUSsSIONISsST!", nil, lumia)
+		cutscene:text("* I MAKE PEOPLE HAPPIER BY LETTING THEM SsSEE MY LIESsS!", nil, lumia)
+		cutscene:text("* BUT TRUSsST ME ON THIS,[wait:4] KRISsS,[wait:4] THISsS ISsS FAR FROM MY FULL POTENTIAL!", nil, lumia)
+		cutscene:text("* THE THING ISsS...", nil, lumia)
+
+		Game.world.music:pause()
+		lumia:setSprite("sad")
+		cutscene:text("* I'm not as alive as before.", nil, lumia)
+		Game.world.music:resume()
+
+		lumia:setSprite("idle")
+		cutscene:text("* AND I DON'T CARE!!", nil, lumia)
+		cutscene:text("* BECAUSsSE I'M STILL ALIVE IN YOUR MEMORY!", nil, lumia)
+		cutscene:text("* THANKSsS TO YOU,[wait:4] I EXISsST!", nil, lumia)
+
+		Game.world.music:pause()
+		lumia:setSprite("sad")
+		cutscene:text("* But...[wait:6] What's the point if nobody else sees me?", nil, lumia)
+		Game.world.music:resume()
+
+		lumia:setSprite("idle")
+		cutscene:text("* ANYWAYSsS", nil, lumia)
+		cutscene:text("* WHY NOT HAVE A HEART-TO-HEART TALK AFTER SsSO MANY YEARSsS OF ABANDONMENT?", nil, lumia)
+
+		cutscene:text("* (Psst,[wait:4] want me to do something?)", 'shy', susie)
+		cutscene:text("* (Huh,[wait:6] you want me to hit this empty spot?)", 'surprise', susie)
+		
+		Game.world.music:stop()
+		
+		cutscene:wait(0.25)
+		
+		susie:setAnimation('battle/rude_buster')
+		
+		do
+			local rudeBuster = Game.world:spawnObject(RudeBusterBeam(false, susie.x, susie.y - (susie.height * .5), lumia.x, lumia.y - lumia.height))
+			
+			cutscene:wait(.42)
+		end
+		
+		lumia:shake(8)
+		lumia:setAnimation('hurt')
+		
+		cutscene:wait(1)
+		lumia:setAnimation('idle')
+		
+		cutscene:text("* OH.", nil, lumia)
+		cutscene:text("* I see now.", nil, lumia)
+		cutscene:text("* WELL,[wait:4] LET'S SsSEE IF YOU FULFILL THE ROLE OF HERO,[wait:6] SsSHALL WE?", nil, lumia)
+	end
 	
 	Assets.playSound('lumia battle start', 2)
 	
@@ -86,5 +137,9 @@ return function(cutscene, event, player, facing)
 	
 	cutscene:wait(1)
 		
+	Mod.flags.encounter = true
+
 	cutscene:startEncounter('lumia', nil, lumia)
+
+	Mod.flags.encounter = false
 end

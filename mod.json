@@ -1,8 +1,9 @@
 {
 	"id": "funtown",
-    "name": "Deltarune: Fun Town",
+    "name": "Deltarune: Fun Town (Lumia)",
     "subtitle": "Chapter 3 AU by KateBulka and her team",
     "map": "splash",
+    "soulColor": [0, 0.7529, 0],
 
     "quickReload": true,
     "useSaves": false,
@@ -10,9 +11,20 @@
     "hidden": false,
     "party": ["kris", "susie", "ralsei"],
 	
+    "inventory": {
+        "key_items": ["cell_phone", "shadowcrystal", "shadowcrystal"]
+    },
+
+    "equipment": {
+        "kris": {"armor": ["supersocks", "amber_card"] },
+        "susie": {"armor": ["supersocks", "amber_card"] },
+        "ralsei": {"armor": ["yellow_ribbon", "supersocks"] }
+    },
+
     "config": {
         "kristal": {
 			"speechBubble": "ch3",
+            "oldGameOver": true
         }
     }
 }

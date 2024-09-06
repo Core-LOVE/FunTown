@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.1",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -9,8 +9,8 @@ return {
   height = 24,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 5,
-  nextobjectid = 7,
+  nextlayerid = 7,
+  nextobjectid = 20,
   properties = {
     ["music"] = "darkroom"
   },
@@ -18,8 +18,36 @@ return {
     {
       name = "abandoned_scene",
       firstgid = 1,
-      filename = "../../tilesets/abandoned_scene.tsx",
-      exportfilename = "../../tilesets/abandoned_scene.lua"
+      filename = "../../tilesets/abandoned_scene.tsx"
+    },
+    {
+      name = "lumia_camera_static",
+      firstgid = 2,
+      class = "",
+      tilewidth = 84,
+      tileheight = 112,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "../../../../assets/sprites/other/lumia_camera_static.png",
+      imagewidth = 84,
+      imageheight = 112,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 84,
+        height = 112
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 1,
+      tiles = {}
     }
   },
   layers = {
@@ -135,6 +163,58 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 10,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 300,
+          y = 760,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 12,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -40,
+          y = 560,
+          width = 40,
+          height = 400,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 14,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 800,
+          width = 640,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 17,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 641,
+          y = 561,
+          width = 40,
+          height = 240,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -164,6 +244,69 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 5,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 7,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 380,
+          y = 800,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "lumia",
+            ["cutscene"] = "eternal_lumia_encounter",
+            ["sprite"] = "defeated"
+          }
+        },
+        {
+          id = 11,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 800,
+          width = 84,
+          height = 112,
+          rotation = 0,
+          gid = 2,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 18,
+          name = "script",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 560,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "eternal_lumia_encounter",
+            ["once"] = false
+          }
         }
       }
     }

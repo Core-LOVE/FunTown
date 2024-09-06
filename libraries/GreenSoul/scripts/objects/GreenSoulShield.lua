@@ -1,5 +1,9 @@
 local GreenSoulShield, super = Class(Object)
 
+local mathpi = math.pi
+local mathsin = math.sin
+local mathcos = math.cos
+
 function GreenSoulShield:init(x, y)
     super.init(self, x, y)
 	
@@ -20,10 +24,10 @@ function GreenSoulShield:init(x, y)
 		-- ["down"]	= {0, self.height - 1, self.width, 1},
 		-- ["left"]	= {0, 0, 1, self.height},
 		
-		-- ["left+up"]		= {0, 0, self.width * .5, self.height * .5},
-		-- ["up+right"]	= {self.width * .5, 0, self.width * .5, self.height * .5},
-		-- ["left+down"]	= {0, self.height * .5, self.width * .5, self.height * .5},
-		-- ["right+down"]	= {self.width * .5, self.height * .5, self.width * .5, self.height * .5},
+		-- ["left+up"]		= {0, 0, self.width /2, self.height /2},
+		-- ["up+right"]	= {self.width /2, 0, self.width /2, self.height /2},
+		-- ["left+down"]	= {0, self.height /2, self.width /2, self.height /2},
+		-- ["right+down"]	= {self.width /2, self.height /2, self.width /2, self.height /2},
 	-- }
 	
 	self.blinkTimer = 0
@@ -56,13 +60,12 @@ function GreenSoulShield:resolveBulletCollision(bullet)
 	end
 end
 
-function GreenSoulShield:updateCollider()
+function GreenSoulShield:updateCollider(d)
     --some notes: 
     --self.rotation is already in radians, you dont need to convert it to radians again
     --the soul's tip, graphically, is 90 degrees (pi radians) away from the soul's self.rot
-
     local rot = self.rotation - math.rad(90)
-    local d = 35 --change as needed, maybe make this a part of the object?
+    local d = d or 32 --change as needed, maybe make this a part of the object?
     local w = 60 --same as above
 
     --midpoint. 90 degrees counterclokwise (+ angle) and d distance away from soul
@@ -74,12 +77,13 @@ function GreenSoulShield:updateCollider()
     --right endpoint. w distance away from right endpoint, w/2 distance away from center, in the same direction the soul is facing
     local r_x, r_y = ( w/2 * math.cos(rot + math.pi/2) ) + m_x,  ( w/2 * math.sin(rot + math.pi/2) ) + m_y
     -- print( m_x, m_y)
+
     --collider spans points L to R
     self.collider = LineCollider(self.parent,  l_x, l_y,  r_x, r_y)
 end
 
-function GreenSoulShield:update()
-	self:updateCollider()
+function GreenSoulShield:update(_, d)
+	self:updateCollider(d)
 	
     local collided_bullets = {}
     Object.startCache()
@@ -87,25 +91,27 @@ function GreenSoulShield:update()
     	local collider = bullet.collider
     	local x, y = collider.x, collider.y
 
-    	for distance = 0, self.additional_distance do
-    		collider.x = x + math.sin(bullet.physics.direction) * distance
-    		collider.y = y + math.cos(bullet.physics.direction) * distance
+    	-- for distance = 0, self.additional_distance do
+    	-- 	collider.x = x + math.sin(bullet.physics.direction) * distance
+    	-- 	collider.y = y + math.cos(bullet.physics.direction) * distance
 
 	        if bullet:collidesWith(self.collider) then
 	            -- Store collided bullets to a table before calling onCollide
 	            -- to avoid issues with cacheing inside onCollide
 	            table.insert(collided_bullets, bullet)
 	        end
-    	end
+    	-- end
 
-    	collider.x = x
-    	collider.y = y
+    	-- collider.x = x
+    	-- collider.y = y
     end
     Object.endCache()
 	
     for _,bullet in ipairs(collided_bullets) do
         self:resolveBulletCollision(bullet)
     end
+	
+	if d then return end
 	
 	if self.blinkTimer > 0 then
 		self.blinkTimer = self.blinkTimer - 1

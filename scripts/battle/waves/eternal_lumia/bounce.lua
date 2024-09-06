@@ -5,9 +5,9 @@ function MyWave:init()
 	
 	self.arena_width = 80
 	self.arena_height = self.arena_width
-	self:setArenaOffset(-40, 0)
+	self:setArenaOffset(-52, 0)
 
-	self.time = 10
+	self.time = 7.5
 end
 
 local function randomWithStep(first, last, stepSize)
@@ -29,27 +29,12 @@ local function boltSpawning(self)
 
 		while (true) do
 			for k,head in ipairs(heads) do
-				local rotation = randomWithStep(10, 85, 15)
+				local x = head.x
+				local y = head.y
 
-				while (rotation == old_rotation) do
-					rotation = randomWithStep(10, 80, 15)
-				end
+				self:spawnBullet("eternal lumia/jump_bolt", x, y)
 
-				old_rotation = rotation
-
-				if math.random() > 0.5 then
-					rotation = -rotation
-				end
-
-				for i = 1, 4 do
-					local x = head.x
-					local y = head.y
-
-					self:spawnBullet("eternal lumia/dbolt", x, y, math.rad(180 + rotation), 50, 275)
-					wait(0.125)
-				end
-			
-				wait(0.6)	
+				wait(0.8)	
 			end	
 		end
 	end)
@@ -59,19 +44,19 @@ function MyWave:onStart()
 	Assets.playSound("l_film_1")
 	
 	local t = 0.6
-	local y = 50
+	local y = 272
 
-	for i = 1, 2 do
-		local frames = Sprite("battle/eternal lumia/frame_ground", 0, y)
-		frames:setRotationOriginExact(0, y)
-		frames.rotation = math.rad(-90)
-		frames.wrap_texture_x = true
-		frames.physics.speed_x = (i == 2 and 6) or -6
+	-- for i = 1, 2 do
+	local frames = Sprite("battle/eternal lumia/frame_ground", 0, y)
+	frames:setRotationOriginExact(0, y)
+	frames.rotation = math.rad(-90)
+	frames.wrap_texture_x = true
+	frames.physics.speed_x = -6
 
-		self.timer:tween(t, frames, {rotation = math.rad(0)}, 'in-bounce')
-		self:addChild(frames)
-		y = 275
-	end
+	self.timer:tween(t, frames, {rotation = math.rad(0)}, 'in-bounce')
+	self:addChild(frames)
+	-- 	y = 275
+	-- end
 
 	self.timer:after(t - 0.1, function()
 		for k,enemy in ipairs(self:getAttackers()) do

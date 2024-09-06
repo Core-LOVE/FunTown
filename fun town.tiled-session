@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx",
+    "activeFile": "scripts/world/maps/abandoned_scene/data.tmx",
     "expandedProjectPaths": [
         ".",
         "scripts/world/maps",
-        "scripts",
-        "scripts/world"
+        "scripts/world",
+        "scripts"
     ],
     "file.lastUsedOpenFilter": "Все файлы (*)",
     "fileStates": {
@@ -27,20 +27,41 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 320,
-                "y": 240.5
+                "x": 319.5,
+                "y": 240
+            }
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 0.7767129629629629,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 943.076831376289,
+                "y": 321.8692257256959
             }
         },
         "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley2/alley2.tmx": {
             "expandedObjectLayers": [
-                4,
-                5
+                5,
+                7,
+                3,
+                4
             ],
-            "scale": 0.75,
-            "selectedLayer": 4,
+            "scale": 0.7767129629629629,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 954.6666666666666,
-                "y": 887.3333333333333
+                "x": 1029.3377838707756,
+                "y": 881.9216784884068
+            }
+        },
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley3.tmx": {
+            "scale": 0.7767129629629629,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 909.6024319008167,
+                "y": 361.7810097156822
             }
         },
         "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/tilesets/alley.tsx": {
@@ -75,17 +96,66 @@
         "D:/Engines/Kristal-0.8.0/mods/andromedia/scripts/world/tilesets/pillars.tsx": {
             "scaleInDock": 1
         },
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world.tmx": {
+            "scale": 0.8191894531249999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 510.87083507182456,
+                "y": 382.0849973177565
+            }
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world.tmx#aspen_tileset": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world.tmx#maple_tileset": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world2.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 366.5,
+                "y": 205
+            }
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world2.tmx#forest_tileset": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/world/world.tmx": {
+            "scale": 1,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 809.5,
+                "y": 515
+            }
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/world/world.tmx#aspen_tileset": {
+            "scaleInDock": 1
+        },
+        "D:/Engines/SMBX2/worlds/The Rebellion/world/world.tmx#maple_tileset": {
+            "scaleInDock": 0.9,
+            "scaleInEditor": 1
+        },
         "scripts/world/maps/abandoned_scene/data.tmx": {
             "expandedObjectLayers": [
+                5,
                 3,
                 4
             ],
             "scale": 0.75,
-            "selectedLayer": 3,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 434,
-                "y": 725.3333333333333
+                "x": 431.33333333333337,
+                "y": 516
             }
+        },
+        "scripts/world/maps/abandoned_scene/data.tmx#lumia_camera_static": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "scripts/world/maps/abandoned_scene/data.tmx#stuff": {
+            "dynamicWrapping": true,
+            "scaleInEditor": 1
         },
         "scripts/world/maps/castletown_fountain/data.tmx": {
             "scale": 1.3107031249999999,
@@ -107,8 +177,19 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 319.5,
-                "y": 280.5
+                "x": 318.5,
+                "y": 280
+            }
+        },
+        "scripts/world/maps/dess.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.3107031249999999,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 320.0572211956846,
+                "y": 240.3290218751863
             }
         },
         "scripts/world/maps/eternal lumia arena/data.tmx": {
@@ -123,8 +204,8 @@
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 443.5,
-                "y": 398
+                "x": 442.5,
+                "y": 397
             }
         },
         "scripts/world/maps/homewoods_1.tmx": {
@@ -152,10 +233,10 @@
                 2
             ],
             "scale": 0.75,
-            "selectedLayer": 6,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 678,
-                "y": 229.33333333333331
+                "x": 1003.3333333333333,
+                "y": 314.66666666666663
             }
         },
         "scripts/world/maps/homewoods_tenna.tmx": {
@@ -256,6 +337,7 @@
             }
         },
         "scripts/world/tilesets/abandoned_scene.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
@@ -283,42 +365,48 @@
         }
     },
     "frame.defaultDuration": 160,
-    "last.exportedFilePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/scripts/world/tilesets",
+    "last.exportedFilePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/scripts/world/maps/abandoned_scene",
     "last.externalTilesetPath": "D:/Engines/Kristal-0.8.0/mods/FunTown/scripts/world/tilesets",
-    "last.imagePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/assets/sprites/tilesets",
+    "last.imagePath": "D:/Engines/Kristal-0.8.0/mods/FunTown/assets/sprites/other",
     "lastUsedTilesetExportFilter": "Lua файлы (*.lua)",
-    "map.height": 24,
+    "loadedWorlds": [
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/testmod.world"
+    ],
+    "map.height": 25,
     "map.lastUsedExportFilter": "Lua файлы (*.lua)",
     "map.lastUsedFormat": "tmx",
-    "map.tileHeight": 40,
-    "map.tileWidth": 40,
-    "map.width": 16,
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
+    "map.width": 25,
     "openFiles": [
-        "scripts/world/maps/curly machine/data.tmx",
-        "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/debug.tmx",
-        "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/trochum_ex/data.tmx",
-        "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx"
+        "scripts/world/maps/abandoned_scene/data.tmx",
+        "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley3.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley2/alley2.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley.tmx"
     ],
     "project": "fun town.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "scripts/world/maps/curly machine/data.tmx",
-        "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/debug.tmx",
-        "D:/Engines/Kristal-0.8.0/mods/Deltaswap_Brylee/scripts/world/maps/trochum_ex/data.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley2/alley2.tmx",
+        "D:/Engines/Kristal-0.8.0/mods/_testmod/scripts/world/maps/alley3.tmx",
         "scripts/world/maps/homewoods_lumia/homewoods_lumia.tmx",
-        "scripts/world/tilesets/abandoned_scene.tsx",
-        "D:/Engines/Kristal-0.8.0/mods/andromedia/scripts/world/maps/ch4/pillars/start/start.tmx",
         "scripts/world/maps/abandoned_scene/data.tmx",
-        "scripts/world/tilesets/homewoods.tsx",
-        "scripts/world/maps/castletown_fountain/data.tmx",
-        "scripts/world/maps/test.tmx",
+        "scripts/world/maps/dess.tmx",
+        "scripts/world/maps/funtheatre_test.tmx",
         "scripts/world/maps/curly_meeting.tmx",
-        "scripts/world/maps/homewoods_test.tmx"
+        "scripts/world/tilesets/abandoned_scene.tsx",
+        "D:/Engines/SMBX2/worlds/The Rebellion/world/world.tmx",
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world.tmx",
+        "D:/Engines/SMBX2/worlds/The Rebellion/World/world2.tmx"
     ],
     "resizeMap.removeObjects": false,
+    "tileset.embedInMap": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 40,
-        "width": 40
-    }
+        "height": 112,
+        "width": 84
+    },
+    "tileset.type": 0
 }

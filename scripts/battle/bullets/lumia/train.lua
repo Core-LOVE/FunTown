@@ -5,7 +5,8 @@ function MyBullet:init(sprite, x, y, is_smoking)
     super:init(self, x, y)
 
     self:setSprite("bullets/lumia/" .. sprite, 3 / 30, true)
-	
+	self.tp = 0.6
+
     local hitbox_w, hitbox_h = 12, 5
     local hitbox_x, hitbox_y = (16 - hitbox_w) * .5, (16 - hitbox_h) * .5
 

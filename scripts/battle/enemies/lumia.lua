@@ -3,7 +3,7 @@ local MyEnemy, super = Class(EnemyBattler)
 function MyEnemy:selectWave()
 	local wave = Utils.pick(self.waves)
 
-	if self.prev_wave then
+	if self.prev_wave and #self.waves > 1 then
 		while (wave == self.prev_wave) do
 			wave = Utils.pick(self.waves)
 		end
@@ -39,7 +39,9 @@ function MyEnemy:init()
     self.waves = {
 		"lumia/ball",
 		"lumia/flash",
-		"lumia/trains"
+		"lumia/trains",
+		"lumia/doll",
+		"lumia/jackbox",
 	}
 	
 	self.prev_wave = nil
@@ -56,6 +58,7 @@ function MyEnemy:init()
 		"* Say CHEESsSE!",
 		"* History repeats.",
 		"* Grand Illusions are coming.",
+		"* You want to try snake oil...\nFor some unknown reason."
     }
 	
 	self.dialogue_text = {
@@ -67,10 +70,11 @@ function MyEnemy:init()
 	}
 
 	self.random_dialogue_text = {
-		"LET'SsS TELL FORTUNE ON\nCARDSsS.",
+		"LET'SsS TELL FORTUNE ON\nCARDSsS!",
 		"THE CRYSsSTAL BALL WILL TELL YOUR FATE...",
 		{"I HAVE SsSO SsSO\nMANY TOYS!", "CAN'T EVEN\nCOUNT THEM..."},
-		"CAMERASsS SsSEE THINGS\nLIGHTNERS CAN'T SsSEE!"
+		"CAMERASsS SsSEE THINGS\nLIGHTNERS CAN'T SsSEE!",
+		{"CURE TO ALL DISsSEAESsS!", "INCLUDING...\n Abandonment."},
 	}
 
     self:registerAct("Trick", "Magic", nil)

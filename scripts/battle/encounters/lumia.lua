@@ -24,7 +24,7 @@ function MyEncounter:init()
 	-- spawnLumia(self)
 	-- spawnLumia(self)
 	
-    self.text = "* Everything is sparkling with magic!\n[wait:4]Or is it..."
+    self.text = "[facec:susie/teeth_b][voice:susie]* WHO ARE WE EVEN FIGHTING??"
 	self.music = "shenanigans"
 end
 

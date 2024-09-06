@@ -8,7 +8,8 @@ function MyBullet:init(x, y)
 
     self:setSprite("bullets/" .. id, 3 / 30, true)
 	self.physics.direction = (rot ~= nil and rot) or math.atan2(soul.y - self.y, soul.x - self.x)
-
+	self.tp = 1
+	
     self:setHitbox(2, 2, 2, 2)
 end
 

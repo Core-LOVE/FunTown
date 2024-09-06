@@ -72,9 +72,9 @@ function GreenSoul:init(x, y)
 	self:setShieldRotation(Kristal.getLibConfig("greensoul", "side"))
 	self.defaultSide = self.side
 	
-	if self.shield2 then
-		self:setSecondShieldRotation(Kristal.getLibConfig("greensoul", "side"))
-	end
+	-- if self.shield2 then
+	-- 	self:setSecondShieldRotation(Kristal.getLibConfig("greensoul", "side"))
+	-- end
 	
 	if GreenSoul.isExplosive then
 		local spr = Sprite("player/heart_outline_filled_inner", self.x, self.y)
@@ -188,21 +188,7 @@ end
 local function secondShield(self)
 	if not self.shield2 then return end
 	
-	if self.tween2 then 
-		if self.tween2:update(self.rotationSpeed) then 
-			self.tween2 = nil
-		else
-			return
-		end
-	end
-	
-	if not self.can_defend then return end
-	
-	for _, key in ipairs(self.rotationSidesIterator) do
-		if inputCheck(self, key) then
-			self:rotateSecondShield(key)
-		end
-	end
+	self.shield2.rotation = self.shield.rotation + math.rad(180)
 end
 
 function GreenSoul:draw()

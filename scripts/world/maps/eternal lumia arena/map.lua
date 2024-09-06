@@ -72,7 +72,15 @@ function MyMap:initPoles()
 		
 		local spr = Sprite("other/pole_top", 48 + dx, 96 + dy)
 		spr:setScale(2)
-		spr:play(0.175)
+
+		local speed = 0.075
+		local frames = {1, 2, 3, 4, 5}
+
+		if i == 2 then
+			frames = Utils.reverse(frames)
+		end 
+
+		spr:setAnimation({nil, speed, true, frames = frames})
 	
 		Game.world:spawnObject(spr, 40)
 		
@@ -96,7 +104,7 @@ function MyMap:onEnter()
 	super.onEnter(self)
 	Game:removePartyMember("ralsei")
 	Game:addPartyMember("ralsei")
-	
+    Game.fader:fadeIn(nil, {alpha = 1, speed = 0.5})
 	Game:setBorder("eternal")
 
 	self.timer = Timer()

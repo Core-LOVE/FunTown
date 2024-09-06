@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.1",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 9,
-  nextobjectid = 35,
+  nextobjectid = 38,
   properties = {},
   tilesets = {
     {
@@ -175,7 +175,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["cutscene"] = "lumia_encounter"
+            ["cutscene"] = "lumia_encounter",
+            ["once"] = false
           }
         },
         {
@@ -399,6 +400,45 @@ return {
           y = 200,
           width = 40,
           height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 35,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = -40,
+          width = 160,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 36,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1360,
+          y = 200,
+          width = 40,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 37,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1200,
+          y = 0,
+          width = 160,
+          height = 200,
           rotation = 0,
           visible = true,
           properties = {}

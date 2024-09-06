@@ -7,6 +7,8 @@ function MyMap:onEnter()
 	Game:setBorder("homewoods")
 
     Game.fader:fadeIn(nil, {alpha = 1, speed = 0.5})
+
+	Game:saveQuick()
 end
 
 return MyMap

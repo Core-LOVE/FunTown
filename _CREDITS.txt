@@ -1,0 +1,47 @@
+DELTARUNE: Fun Town (Lumia)
+
+Author:
+KateBulka
+
+SFX:
+Nintendo
+OpenGameArt (VishwaJai, bonebrah, p0ss)
+sfxr.me
+bigsoundbank (Joseph SARDIN)
+Freesound (PatrickLieberkind)
+KateBulka
+
+Code:
+KateBulka
+skarph (Green Shield's proper collisions)
+
+Sprites:
+Razor X (Eternal Lumia Arena)
+Basty (Eternal Lumia Arena)
+TNTVale (Video's Thumbnail)
+riverstar.89 (Train's Sprite)
+KateBulka
+
+Music:
+R.V. Pine (Lumia, Shenanigans!)
+DruidPC (GRAND ILLUSIONS, Realization/Credits)
+KateBulka (GRAND ILLUSIONS, Dark Room)
+
+Testing:
+Razor X
+skroy
+
+Original Deltarune:
+Toby Fox and his team
+
+Special Thanks:
+SMBX2 Community
+Love2D Community
+Kristal Community
+Wandering Makers
+Andromedia
+Mylazt
+Greenlight
+MrDoubleA
+MonkeyMan
+RottenBerry

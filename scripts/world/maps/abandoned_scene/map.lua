@@ -91,7 +91,7 @@ do
 end
 	
 do
-	seats2 = Sprite("tilesets/parallax/seats", 0, 480 + 256)
+	seats2 = Sprite("tilesets/parallax/seats", 0, 480 + 208)
 	seats2.wrap_texture_x = true
 	seats2:setScale(2)
 	seats2.shader = shader2
@@ -247,6 +247,7 @@ end
 
 function MyMap:load()
 	super:load(self)
+
 	self:initBG()
 	self:initDark()
 	local dark = self:initDark()
@@ -296,6 +297,8 @@ function MyMap:load()
 	Game.world:spawnObject(gradient, 99)
 	Game:setBorder("simple")
     Game.fader:fadeIn(nil, {alpha = 1, speed = 0.5})
+
+	Game:saveQuick()
 end
 
 return MyMap

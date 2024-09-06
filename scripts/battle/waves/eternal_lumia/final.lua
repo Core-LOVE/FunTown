@@ -2,6 +2,11 @@ local MyWave, super = Class(Wave)
 
 local head
 
+local function randomWithStep(first, last, step)
+    local maxSteps = math.floor((last-first)/step)
+    return first + step * math.random(0, maxSteps)
+end
+
 function MyWave:spawnTrain(x, y)
 	local soul = Game.battle.soul
 
@@ -59,24 +64,55 @@ function MyWave:spawnTrain(x, y)
 
 	self.timer:tween(0.5, head_light, {alpha = 1})
 
+	local stop_bullets = false
+	local delay = 0.32
+
 	self.timer:after(1.2, function()
 		self.timer:script(function(wait)
 			local soul = Game.battle.soul
 			local distance = 256
+			local ending_distance = 32
 
-			while true do
-				wait(0.32)
+			while not stop_bullets do
+				wait(delay + 0.25)
 
 				for i = 0, 4 do
-					local rotation = soul.rotation
+					local rotation = math.rad(randomWithStep(0, 360, 90))
 
 					local x, y = math.cos(rotation) * distance, math.sin(rotation) * distance
+					local dx, dy = math.cos(rotation) * ending_distance, math.sin(rotation) * ending_distance
 
-					local bullet = self:spawnBullet("eternal lumia/bolt", soul.x + x, soul.y + y, nil, nil, true)
-					bullet.physics.speed = bullet.physics.speed * .05
-					bullet.damage = 0
+					local bullet = Registry.createBullet("eternal lumia/bolt", x, y, nil, nil, true)
+					bullet.physics.speed = 0
+					-- bullet.damage = 0
 
-					wait(0.25)
+					bullet.rotation = rotation + math.rad(180)
+
+					self.timer:tween(3, bullet, {x = dx, y = dy}, 'in-circ', function()
+						if bullet then
+							soul:onCollide(bullet)
+						end
+					end)
+
+					local t = Timer()
+
+					bullet:addChild(t)
+
+					t:every(0.1, function()
+						local afterimage = Sprite("bullets/eternal lumia/bolt", bullet.x, bullet.y)
+						afterimage:setOrigin(.5, .5)
+						afterimage.alpha = 0.5
+						afterimage.rotation = bullet.rotation
+						afterimage:fadeOutAndRemove(0.32)
+						afterimage.physics.direction = bullet.rotation
+						afterimage.physics.speed = -1
+
+						soul:addChild(afterimage)
+					end)
+
+					soul:addChild(bullet)
+
+					wait(delay)
 				end
 			end
 		end)
@@ -86,6 +122,44 @@ function MyWave:spawnTrain(x, y)
 
 			end)
 		end)
+	end)
+
+	self.timer:after(5, function()
+		delay = 0.25
+
+		Assets.playSound("eternal lumia charge", 0.5, 0.5)
+		Assets.playSound("eternal lumia charge", 0.5, 0.75)
+		local rect = Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+		rect:setParallax(0)
+		rect.alpha = 0
+		rect.layer = BATTLE_LAYERS.above_arena + 5000
+
+		self.timer:tween(4, rect, {alpha = 1}, nil, function()
+			self.timer:after(1, function()
+				self.time = 0
+				self:setArenaSize(80, 80)
+				Game.battle.wave_timer = 0
+
+				Game.battle.timer:tween(2, rect, {alpha = 0}, nil, function()
+					for k,v in ipairs(head.trail) do 
+						v:remove()
+					end
+
+					head:remove()
+					
+					rect:remove()
+				end)
+
+				Game.battle.camera = Camera(Game.battle, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH, SCREEN_HEIGHT, false)
+				self.stupid_fader:remove()
+			end)
+		end)
+
+		self.timer:after(2, function()
+			stop_bullets = true
+		end)
+
+		Game.battle:addChild(rect)
 	end)
 
 	self.timer:after(0.45, function()
@@ -124,11 +198,19 @@ function MyWave:spawnTrain(x, y)
 
 					local x, y = follow:getRelativePos(0, -15, self)
 
-					soul.x = x
-					soul.y = y
-					soul.rotation = rot
+					local sx, sy = x - soul.x, y - soul.y
 
-					soul.shield.additional_distance = head.physics.speed
+					soul.noclip = true
+					soul:move(sx, sy)
+					soul.rotation = rot
+					soul.noclip = false
+
+					local shield = soul.shield
+
+					for i = 35, 49 do
+						shield:update(nil, i)
+					end
+					-- soul.shield.additional_distance = head.physics.speed
 
 					orig(soul, ...)
 				end)
@@ -162,6 +244,8 @@ function MyWave:onStart()
     fader.parallax_y = 0
     fader.alpha = 0
     fader.layer = BATTLE_LAYERS.above_arena - 50
+
+    self.stupid_fader = fader
 
     Game.battle:addChild(fader)
 
@@ -217,6 +301,8 @@ function MyWave:onStart()
 					local speed = 0.01
 
 					Utils.hook(obj, 'update', function(old, self, ...)
+						if fader == nil then return self:remove() end
+
 						t = t + speed
 
 						if (t >= 1) then return self:remove() end

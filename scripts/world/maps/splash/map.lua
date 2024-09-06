@@ -49,7 +49,15 @@ function MyMap:onEnter()
 	super.onEnter(self)
 	Game:setBorder("simple")
 
-	Game.world:startCutscene("splash", "menu")
+	if Mod.flags.splash then
+		Game.world:startCutscene("splash", "splash")
+	else
+		Game.world:startCutscene("splash", "menu")
+	end
+
+	Mod.flags.splash = false
+
+	-- Game.world:startCutscene("splash", "menu")
 
 	-- self.state = "warning"
 	-- self:stateActivate(self.state)

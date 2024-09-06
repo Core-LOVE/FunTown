@@ -4,11 +4,12 @@ local MyBullet, super = Class(Bullet, id)
 local function appear(self)
 	self.sfx = Assets.playSound("l_thunder", .5, 2)
 	
-	local x,y = self:getScreenPos()
+	local cam = Game.battle.camera
+
 	local circle = Ellipse(self.x, self.y, 15)
 	circle:setOrigin(.5)
-	circle.parallax_x = 0
-	circle.parallax_y = 0
+	circle.physics.direction = self.rotation
+	circle.physics.speed = -2
 
 	local t = Timer()
 

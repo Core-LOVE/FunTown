@@ -67,14 +67,27 @@ function MyEnemy:onAct(battler, name)
 		return "* You tried to expose Lumia!"
 	elseif name == "ExposeX" then
    		self:expose()
-        self:addMercy(9)
+        self:addMercy(100)
 		return "* Everyone tried to expose Lumia!"
 	elseif name == "SupportShield" then
+		Assets.playSound("supportshield")
 		GreenSoul.hasSecondShield = true
-		return "* Ralsei created second shield!"
+		return "* Ralsei? created second shield!"
 	elseif name == "PostDestruct" then
+		Assets.playSound("postdestruct")
 		GreenSoul.isExplosive = true
-		return "* Susie made soul explosive!"
+		return "* Susie? made soul explosive!"
+	elseif name == "Believe" then
+		local t = {
+			"* You believed in yourself and your friends.\n[wait:8]It warmed your soul.",
+			"* You won't let Lumia gaslight you.",
+		}
+
+		for k,v in ipairs(Game.battle.party) do
+			v:heal(math.random(40, 80))
+		end
+
+		return Utils.pick(t)
 	end
 
 	return super.onAct(self, battler, name)
@@ -88,7 +101,7 @@ function MyEnemy:selectWave()
     local sprite = self:getActiveSprite()
 	sprite:setHeadAnimation()
 
-	if Game.world and Game.world.map and Game.world.map.spin_speed then
+	if Game.world and Game.world.map and Game.world.map.spin_speed and Game.world.map.spin_speed < 0.32 then
 		Game.world.map.timer:tween(0.5, Game.world.map, {spin_speed = Game.world.map.spin_speed + 0.01}, 'in-sine')
 	end
 
@@ -144,21 +157,33 @@ function MyEnemy:init()
 		"eternal_lumia/beginning",
 		"eternal_lumia/mirrors",
 		"eternal_lumia/carousel",
-		"eternal_lumia/bounce",
-		"eternal_lumia/rockets",		
+		"eternal_lumia/bounce",	
+		"eternal_lumia/diamonds",
+
+		-- hard
+
+		"eternal_lumia/beginning_hard",
+		"eternal_lumia/mirrors_hard",
 		"eternal_lumia/carousel_hard",
-		-- "eternal_lumia/ball",
-		-- "eternal_lumia/final",
+		"eternal_lumia/bounce_hard",
+		"eternal_lumia/diamonds_hard",
+
+		-- final
+
+		"eternal_lumia/prefinal",
+		"eternal_lumia/final",
 	}
 	
 	self.random_waves = self.waves
 
 	self.exit_on_defeat = false
 	self.prev_wave = nil
-	
-	self.spare_points = 5
+	self.auto_spare = true
+
+	self.spare_points = 0
 	self.attack = 13
-	self.health = 800
+	-- self.health = 800
+	self.health = 1
 	self.max_health = self.health
 	self.gold = 50
 	
@@ -174,27 +199,48 @@ function MyEnemy:init()
 
     self:registerAct("Expose", "", nil)
     self:registerAct("ExposeX", "", "all")
+    self:registerAct("Believe", "Dual\nHeal", "all", 32)
 end
 
 function MyEnemy:onDefeat(damage, battler)
-    if self.exit_on_defeat then
-        self:onDefeatRun(damage, battler)
-    else
-        self.sprite:setAnimation("defeat")
+	Game.battle:setState("CUTSCENE")
+
+   	Game.battle:startCutscene("eternal_lumia", "fight", self)
+
+    Game.battle:resetAttackers();   
+	Game.battle.processing_action = false
+
+	Game.battle.should_finish_action = false
+	Game.battle.on_finish_keep_animation = nil
+	Game.battle.on_finish_action = nil
+
+    -- self.defeated = true
+    -- self:defeat("VIOLENCED", true)
+
+    if Game.battle.battle_ui.attacking then
+        Game.battle.battle_ui:endAttack()
     end
 end
 
-function MyEnemy:defeat(type, ...)
-	super.defeat(self, type, ...)
-	
-	if type == "VIOLENCED" then
-		Assets.playSound("lumia dislike")
-	else
-		Assets.playSound("lumia huh")
-	end
+function MyEnemy:onSpared()
+	Game.battle:setState("CUTSCENE")
+
+   	Game.battle:startCutscene("eternal_lumia", "mercy", self)
+
+    Game.battle:resetAttackers();   
+	Game.battle.processing_action = false
+
+	Game.battle.should_finish_action = false
+	Game.battle.on_finish_keep_animation = nil
+	Game.battle.on_finish_action = nil
+	Game.battle.actions_done_timer = math.huge
 end
 
 function MyEnemy:getEnemyDialogue()
+	if self.spared then
+   		return Game.battle:startCutscene("eternal_lumia", "mercy", self)
+	end
+
     if self.text_override then
         local dialogue = self.text_override
         self.text_override = nil

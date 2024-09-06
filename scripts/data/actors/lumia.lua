@@ -31,14 +31,20 @@ function actor:init()
 		
 		["on"] = {"on/on", 0.075, false},
 		["off"] = {"off/off", 0.075, false, next = 'battle/idle'},
-		
+		["world_off"] = {"off/off", 0.075, false, next = 'idle'},
+			
 		["hurt"] = {"hurt", 0.1, true},
 		["badlyhurt"] = {"badlyhurt", 0.1, true},
 		["defeat"] = {"defeated", 0.1, true},
+		["appear"] = {"appear", 0.065, false, next = "idle"}
         -- ["hurt"] = {"hurt", 0.5, true},
         -- ["angry"] = {"angry", 0.15,,true},
 		-- ["spared"] = {"spared", 0.15, true},
 	}	
+
+	self.offsets = {
+		["appear"] = {-2, 0}
+	}
 end
 
 function actor:createSprite()
