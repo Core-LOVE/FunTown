@@ -69,6 +69,8 @@ return {
 	    cutscene:attachCamera()
 	    cutscene:attachFollowers()
 
+		kris:setFacing("down")
+
 	    cutscene:text("* (You felt a dark pressence in your pocket.)")
 	    Assets.playSound("item")
 	    cutscene:text("* (You got MagicCloak.)")
