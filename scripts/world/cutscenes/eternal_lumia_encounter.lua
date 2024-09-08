@@ -85,6 +85,15 @@ return function(cutscene, event, player, facing)
     cutscene:text("* I KNOW YOU, KRISsS.[wait:4] I KNOW YOUR TYPE.", nil, lumia)
     cutscene:text("* NEVER DOUBTED FOR A SsSECOND THAT YOU WOULD COME.", nil, lumia)
     cutscene:text("* THISsS[wait:6] WASsS MY PLACE OF LIVING ONCE.", nil, lumia)   
+    cutscene:text("* BUCKETS OF FLOWERSsS ALWAYS FELL DOWN HERE.", nil, lumia)   
+    cutscene:text("* ALMOST AS IF[wait:8] THEY WERE BEING PLACED ON MY GRAVE...", nil, lumia)   
+    cutscene:text("* ... I WANTED TO COME BACK SsSO MUCH.", nil, lumia)   
+    cutscene:text("* I WANTED TO BE ALIVE!\nI WANTED TO MEAN SsSOMETHING!", nil, lumia)   
+    cutscene:text("* But it didn't matter.", nil, lumia)   
+    cutscene:text("* AND THEN YOU CAME HERE...", nil, lumia)   
+    cutscene:text("* YOU VENTURED DEEP INSsSIDE AND SsSAVED ME FROM THIS FATE.", nil, lumia)   
+    cutscene:text("* BUT YOU REMEMBERED SsSOMETHING ELSE BESIDES JUST ME.", nil, lumia)   
+    cutscene:text("* SsSO,[wait:8] ARE YOU READY TO FACE THE TRUTH?[wait:8] YOUR FATE?", nil, lumia)   
 
     local choice = cutscene:choicer({"Yes", "No"})
 
@@ -581,7 +590,8 @@ return function(cutscene, event, player, facing)
 
     cutscene:text("* YOUR SsSOUL TRIESsS TO PROTECT ITSsSELF IN ANY WAY POSsSIBLE...", nil, lumia)
     cutscene:text("* BUT NOBODY WILL SsSAVE YOU IN THE FUTURE, BECAUSsE YOU'LL FAIL EVERYONE.", nil, lumia)
-    cutscene:text("* LET ME REVEAL MY GRAND ILLUSION!", nil, lumia)
+    cutscene:text("* And the consequences of your actions came down to this.", nil, lumia)
+    cutscene:text("* LET ME REVEAL MY[wait:6] GRAND ILLUSsSION!", nil, lumia)
 
     eternal_lumia.sprite:setHeadAnimation("talk")
 

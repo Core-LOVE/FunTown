@@ -127,7 +127,13 @@ return function(cutscene, event, player, facing)
 	local fader = Rectangle(320, 0, Game.world.width, Game.world.height)
 	fader.alpha = 0
 	fader.color = {0, 0, 0}
-	
+	fader.layer = WORLD_LAYERS.ui
+
+	kris:setLayer(fader.layer + 1)
+	susie:setLayer(fader.layer + 1)
+	ralsei:setLayer(fader.layer + 1)
+	lumia:setLayer(fader.layer + 1)
+
 	Game.world:spawnObject(fader, kris.layer - 0.001)
 	
 	Game.world.timer:tween(0.75, fader, {alpha = 0.75}, 'out-sine')
@@ -176,14 +182,26 @@ return function(cutscene, event, player, facing)
 	cutscene:text("* ... The heck just happened?", 'suspicious', susie)
 
 	susie:shake(4)
-	susie:setAnimation("exasperated_right")
+	susie:setSprite("exasperated_right")
 
-	cutscene:text("* Why would we fight THE AIR??", 'teeth', susie)	
+	cutscene:text("* Why would we fight THE AIR??", 'teeth_b', susie)	
+	susie:shake(2)
+	cutscene:text("* It doesn't make sense!", 'teeth', susie)	
 
 	ralsei:setFacing("up")
 
-	cutscene:text("* ")
+	cutscene:text("* I think Kris saw something that we don't see...", "small_smile_side_b", ralsei)
+	susie:resetSprite()
+	susie:setFacing("down")
 
+	cutscene:text("* Huh...[wait:6] And how that's possible?", "smirk", susie)
+	cutscene:text("* Unfortunately,[wait:4] some darkners get...[wait:6] Broken.", "frown", ralsei)	
+	cutscene:text("* They are visible only to lightners to whom they were once important.", "pensive", ralsei)	
+	cutscene:text("* ... That explains it.", "nervous", susie)
+	susie:setFacing("up")
+	kris:setFacing("down")
+	cutscene:text("* You can always count on us,[wait:6] Kris.", "smile", susie)
+	cutscene:text("* If... Anything happens to you.", "smirk", susie)
 	cutscene:panTo(kris)
 
 	cutscene:wait(1)
