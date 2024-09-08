@@ -65,7 +65,7 @@ function MyWave:spawnTrain(x, y)
 	self.timer:tween(0.5, head_light, {alpha = 1})
 
 	local stop_bullets = false
-	local delay = 0.36
+	local delay = 0.38
 
 	self.timer:after(1.2, function()
 		self.timer:script(function(wait)
@@ -75,21 +75,23 @@ function MyWave:spawnTrain(x, y)
 			local short = false
 
 			while not stop_bullets do
-				wait(delay + 0.2)
+				wait(delay + 0.05)
 
 				for i = 0, 4 do
-					local rotation = math.rad(randomWithStep(0, 360, 90))
+					local rotation = math.rad(randomWithStep(0, 360, 45))
 
 					local x, y = math.cos(rotation) * distance, math.sin(rotation) * distance
 
-					local bullet = Registry.createBullet("eternal lumia/bolt", x, y, nil, nil, true)
+					local bullet = Registry.createBullet("eternal lumia/bolt", x, y, nil, nil, true, true)
+					bullet.alpha = 0.5
 					bullet.physics.speed = 0
-					bullet.damage = 45
+					bullet.damage = 60
+					bullet.layer = 99
 					-- bullet.damage = 0
 
 					bullet.rotation = rotation + math.rad(180)
 
-					self.timer:tween(1.5, bullet, {x = 0, y = 0}, 'in-out-sine')
+					self.timer:tween(1.5, bullet, {x = 0, y = 0, alpha = 1}, 'in-out-sine')
 
 					local t = Timer()
 
@@ -109,7 +111,7 @@ function MyWave:spawnTrain(x, y)
 
 					soul:addChild(bullet)
 
-					wait((short and delay * .75) or delay)
+					wait((short and delay * .64) or delay)
 					short = not short
 				end
 			end
@@ -123,7 +125,7 @@ function MyWave:spawnTrain(x, y)
 	end)
 
 	self.timer:after(5, function()
-		delay = 0.30
+		delay = 0.31
 
 		local big_bolt = Sprite("bullets/eternal lumia/bolt", 27, -96)
 		big_bolt:setOrigin(.5)

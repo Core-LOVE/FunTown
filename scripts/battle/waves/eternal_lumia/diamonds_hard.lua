@@ -55,7 +55,7 @@ function MyWave:onStart()
 	self.timer:tween(0.75, self.hand, {scale_x = 2, scale_y = 2}, 'out-sine', function()
 		spawnDiamond(self)
 
-		self.timer:every(0.78, function()
+		self.timer:every(0.72, function()
 			spawnDiamond(self)
 		end)
 	end)

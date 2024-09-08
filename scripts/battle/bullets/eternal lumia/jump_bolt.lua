@@ -24,19 +24,16 @@ function MyBullet:init(x, y, angle, speed)
     self:setHitbox(0, 4, 13, 24)
     self:setScale(1)
 
-    self.physics.speed_x = -4
-
-    if faster then
-    	self.physics.speed_x = -6
-    end
+    self.physics.speed_x = -3
 
     faster = not faster
 	self.maxHeight = -8.25
 	
-	if math.random() > 0.5 then
-		self.high = true
-	end
-	
+    if faster then
+    	self.physics.speed_x = -6
+    else
+    	self.high = true
+    end
 	-- self.despawnTimer = 100
 	
 	self.tp = 0
@@ -82,7 +79,7 @@ function MyBullet:update()
 	
 	local height = self.maxHeight
 	if self.high then
-		height = height * 1.32
+		height = height * 1.6
 	end
 	
 	local dy = 308 - 12

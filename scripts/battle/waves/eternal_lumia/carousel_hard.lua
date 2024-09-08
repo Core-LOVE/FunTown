@@ -111,7 +111,7 @@ local function rollMoves(self, roll)
 				bullet.physics.speed = 0
 				bullet.color = {0.5, 0.5, 0.5}
 				bullet.rotation = math.rad(90)
-				bullet.damage = 0
+				-- bullet.damage = 0
 				-- if roll.side == -1 then bullet.rotation = bullet.rotation + math.rad(180) else bullet.rotation = bullet.rotation + math.rad(90) end
 
 				bullet.scale_origin_x = origin_y
@@ -151,7 +151,7 @@ local function rollMoves(self, roll)
 				bullet.scale_y = 0.5
 				bullet.physics.speed = 0
 				bullet.color = {0.5, 0.5, 0.5}
-				bullet.damage = 0
+				-- bullet.damage = 0
 
 				if roll.side == -1 then bullet.rotation = bullet.rotation + math.rad(180) end
 

@@ -8,6 +8,7 @@ local function appear(self)
 
 	local circle = Ellipse(self.x, self.y, 15)
 	circle:setOrigin(.5)
+	circle:setParallax(0, 0)
 	circle.physics.direction = self.rotation
 	circle.physics.speed = -2
 

@@ -107,10 +107,10 @@ function MyWave:onStart()
 					end)
 				end
 
-				wait(0.3)
+				wait(0.28)
 			end
 
-			wait(0.32)
+			wait(0.3)
 		end
 	end)
 	-- self.timer:tween(wait, Game.battle.soul, t, style)

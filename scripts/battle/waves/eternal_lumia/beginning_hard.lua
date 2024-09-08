@@ -43,7 +43,7 @@ function MyWave:birds()
 		Assets.playSound("chirp", 0.5, 1.5)
 	end)
 
-	self.timer:every(0.75, function()
+	self.timer:every(0.5, function()
 		local dx, dy = soul.x, soul.y
 
 		Assets.playSound("swipe", 0.5, 1.5)
