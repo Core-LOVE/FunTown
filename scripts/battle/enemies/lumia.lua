@@ -217,7 +217,7 @@ function MyEnemy:onAct(battler, name)
 			actSprite(battler, battler.x, battler.y)
         end
 		
-        self:addMercy(100)
+        self:addMercy(25)
         return "* Everyone showcased cool tricks to Lumia!"
 	elseif name == "Applause" then
         self:addMercy(2)

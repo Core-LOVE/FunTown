@@ -67,7 +67,7 @@ function MyEnemy:onAct(battler, name)
 		return "* You tried to expose Lumia!"
 	elseif name == "ExposeX" then
    		self:expose()
-        self:addMercy(100)
+        self:addMercy(9)
 		return "* Everyone tried to expose Lumia!"
 	elseif name == "SupportShield" then
 		Assets.playSound("supportshield")
