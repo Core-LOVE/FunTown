@@ -32,4 +32,14 @@ end
 	-- return GreenSoul()
 -- end
 
+function MyEncounter:onReturnToWorld(events)
+	local done_state = self:getDefeatedEnemies()[1].done_state
+
+	if (done_state == "VIOLENCED") then
+		for k,v in ipairs(events or {}) do
+			v:remove()
+		end
+	end
+end
+
 return MyEncounter

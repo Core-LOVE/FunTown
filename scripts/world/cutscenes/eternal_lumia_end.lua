@@ -76,7 +76,19 @@ return {
 	    Assets.playSound("shadowcrystal")
 	    cutscene:text("* (You got ShadowCrystal.)")
 
+		cutscene:fadeOut(1)
+
+		cutscene:wait(1.5)
+
 		cutscene:endCutscene()
+
+		if Mod.VIDEO_MODE then
+			cutscene:loadMap("arena")
+			Game.world:startCutscene("credits")
+		else
+			cutscene:loadMap("splash")
+		end
+		cutscene:fadeIn(1)
 	end,
 
 	fight = function(cutscene, event, player, facing)
@@ -93,7 +105,9 @@ return {
 	    local kris = cutscene:getCharacter("kris")
 	    local susie = cutscene:getCharacter("susie")
 	    local ralsei = cutscene:getCharacter("ralsei")
-	    
+	   	susie:setFacing('down')
+	   	ralsei:setFacing('down')
+
 	    cutscene:detachFollowers()
 	    cutscene:setTextboxTop(false)
 
@@ -150,6 +164,19 @@ return {
 	    Assets.playSound("shadowcrystal")
 	    cutscene:text("* (You got ShadowCrystal.)")
 
+		cutscene:fadeOut(1)
+
+		cutscene:wait(1.5)
+	
 		cutscene:endCutscene()
+
+		if Mod.VIDEO_MODE then
+			cutscene:loadMap("arena")
+			Game.world:startCutscene("credits")
+		else
+			cutscene:loadMap("splash")
+		end
+
+		cutscene:fadeIn(1)
 	end,
 }

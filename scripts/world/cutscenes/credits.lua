@@ -63,8 +63,8 @@ credits[5] = [[
 
 
 [color:999999]Sprites:[color:reset]
-Razor X (Eternal Lumia Arena)
-Basty (Eternal Lumia Arena)
+Razor X
+Basty
 ]]
 
 credits[6] = [[
@@ -157,6 +157,20 @@ credits[13] = [[
 
 Thanks for playing! :3
 ]]
+
+if Mod.VIDEO_MODE then
+    credits[13] = [[
+
+
+
+
+
+
+
+Thanks for watching! :3
+]]
+
+end
 
 return function(cutscene)
 	hide()

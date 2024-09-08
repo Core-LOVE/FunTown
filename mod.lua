@@ -42,6 +42,10 @@ function Mod:_getItems()
 	end
 
 	Game.inventory:addItemTo("key_items", "cell_phone")
+
+	if not Mod:_readOptionEntry("NoShadowMantle") then
+		Game.inventory:addItemTo("key_items", "shadow_mantle")
+	end
 end
 
 function Mod:_readOptionEntry(name)
@@ -99,4 +103,11 @@ Utils.hook(Bullet, 'getTarget', function(orig, self)
 	end
 
 	return orig(self)
+end)
+
+Utils.hook(Game, 'returnToMenu', function(orig, self)
+	self.fader:fadeOut(function()
+		self.fader:fadeIn()
+		Game.world:loadMap("splash")
+	end, {speed = 0.5, music = 10/30})
 end)

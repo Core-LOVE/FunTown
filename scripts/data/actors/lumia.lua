@@ -36,7 +36,8 @@ function actor:init()
 		["hurt"] = {"hurt", 0.1, true},
 		["badlyhurt"] = {"badlyhurt", 0.1, true},
 		["defeat"] = {"defeated", 0.1, true},
-		["appear"] = {"appear", 0.065, false, next = "idle"}
+		["appear"] = {"appear", 0.065, false, next = "idle"},
+		["laugh"] = {"laugh", 0.08, true},	
         -- ["hurt"] = {"hurt", 0.5, true},
         -- ["angry"] = {"angry", 0.15,,true},
 		-- ["spared"] = {"spared", 0.15, true},

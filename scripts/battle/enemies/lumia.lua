@@ -52,7 +52,8 @@ function MyEnemy:init()
 	-- self.health = 800
 	self.max_health = self.health
 	self.gold = 50
-	
+	self.check = "An illusory being."
+
     self.text = {
         "* Lumia is showcasing various\nshenanigans!",
 		"* Say CHEESsSE!",
@@ -83,6 +84,8 @@ function MyEnemy:init()
     self:registerActFor("susie", "Trick")
 
 	self.dialogue = 0
+
+	-- self.exit_on_defeat = false
 end
 
 -- function MyEnemy:defeat(type, ...)
@@ -125,6 +128,16 @@ function MyEnemy:onDefeatRun(damage, battler)
 
     self:defeat("VIOLENCED", true)
     Game.battle.used_violence = false
+end
+
+function MyEnemy:spare(pacify)
+    Game.battle.spare_sound:stop()
+    Game.battle.spare_sound:play()
+
+	Assets.playSound("lumia huh")
+
+    self:defeat(pacify and "PACIFIED" or "SPARED", false)
+    self:onSpared()
 end
 
 function MyEnemy:getEnemyDialogue()
@@ -204,7 +217,7 @@ function MyEnemy:onAct(battler, name)
 			actSprite(battler, battler.x, battler.y)
         end
 		
-        self:addMercy(25)
+        self:addMercy(100)
         return "* Everyone showcased cool tricks to Lumia!"
 	elseif name == "Applause" then
         self:addMercy(2)

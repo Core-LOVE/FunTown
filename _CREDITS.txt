@@ -16,8 +16,8 @@ KateBulka
 skarph (Green Shield's proper collisions)
 
 Sprites:
-Razor X (Eternal Lumia Arena)
-Basty (Eternal Lumia Arena)
+Razor X
+Basty
 TNTVale (Video's Thumbnail)
 riverstar.89 (Train's Sprite)
 KateBulka

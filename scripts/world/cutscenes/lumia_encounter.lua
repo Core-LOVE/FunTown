@@ -130,16 +130,81 @@ return function(cutscene, event, player, facing)
 	
 	Game.world:spawnObject(fader, kris.layer - 0.001)
 	
-	local timer = Timer()
-	Game.world:spawnObject(timer)
-	
-	timer:tween(0.75, fader, {alpha = 0.75}, 'out-sine')
+	Game.world.timer:tween(0.75, fader, {alpha = 0.75}, 'out-sine')
 	
 	cutscene:wait(1)
+
+	Game.world.timer:tween(0.75, fader, {alpha = 0}, 'out-sine', function()
+		fader:remove()
+	end)
 		
 	Mod.flags.encounter = true
 
-	cutscene:startEncounter('lumia', nil, lumia)
+	local encounter = cutscene:startEncounter('lumia', nil, lumia)
+
+	local done_state = encounter:getDefeatedEnemies()[1].done_state
+
+	if done_state ~= "VIOLENCED" then
+		cutscene:text("* THAT WAS SsSO GOOD!", nil, lumia)
+		cutscene:text("* KRISsS,[wait:4] I HAVE A FORTUNE TO TELL...", nil, lumia)
+		cutscene:text("* I WONDER IF YOU CAN FIND ME AGAIN.", nil, lumia)	
+
+		Assets.playSound("lumia laugh")
+		lumia:setAnimation("laugh")
+
+		cutscene:wait(0.1)
+
+		do
+			Assets.playSound("deathnoise", 1, 0.5)
+
+		    local sprite = lumia.sprite
+		    sprite.visible = false
+		    sprite.shake_x = 0
+
+		    local death_x, death_y = sprite:getRelativePos(0, 0, lumia)
+		    local death = NotFatalEffect(sprite:getTexture(), death_x, death_y, function() lumia:remove() end)
+		    death:setColor(sprite:getDrawColor())
+		    death:setScale(sprite:getScale())
+		    lumia:addChild(death)
+		end		
+
+		cutscene:wait(2.25)
+	end
+
+	susie:resetSprite()
+
+	cutscene:text("* ... The heck just happened?", 'suspicious', susie)
+
+	susie:shake(4)
+	susie:setAnimation("exasperated_right")
+
+	cutscene:text("* Why would we fight THE AIR??", 'teeth', susie)	
+
+	ralsei:setFacing("up")
+
+	cutscene:text("* ")
+
+	cutscene:panTo(kris)
+
+	cutscene:wait(1)
+	cutscene:fadeOut(1)
+
+	cutscene:wait(1.5)
 
 	Mod.flags.encounter = false
+
+	cutscene:endCutscene()
+
+
+	cutscene:interpolateFollowers()
+	cutscene:attachCamera()
+	cutscene:attachFollowers()
+
+	if Mod.VIDEO_MODE then
+		cutscene:loadMap("abandoned_scene")
+	else
+		cutscene:loadMap("splash")
+	end
+
+	cutscene:fadeIn(1)
 end

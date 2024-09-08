@@ -8,6 +8,8 @@ local function hide()
     Game.world:spawnObject(black, "below_ui")
 end
 
+local sfx
+
 return {
 	splash = function(cutscene)
 		hide()
@@ -19,7 +21,7 @@ return {
 			hold_t = 3.5
 		end
 
-		Assets.stopAndPlaySound("katebulka")
+		sfx = Assets.stopAndPlaySound("katebulka")
 
 		local continue = false
 		local timer = Timer()
@@ -63,7 +65,9 @@ return {
 	end,
 
 	warning = function(cutscene)
-		Assets.stopAndPlaySound("dont_forget_warning")	
+		if sfx then sfx:stop() end
+
+		sfx = Assets.stopAndPlaySound("dont_forget_warning")	
 
 		local continue = false
 		local timer = Timer()
@@ -99,6 +103,10 @@ return {
 	end,
 
 	menu = function(cutscene)
+		if sfx then sfx:stop() end
+
+		sfx = nil
+		
 		local end_cutscene = false
 
 		hide()
@@ -209,6 +217,14 @@ return {
 					Game.world:startCutscene("credits")
 				end)
 			end)
+		end
+
+		menu.actions[5] = function()
+			menu.can_confirm = false
+
+		    Game.fader:fadeOut(Kristal.returnToMenu, {speed = 0.5, music = 10/30})
+		    Kristal.hideBorder(0.5)
+		    Game.state = "EXIT"
 		end
 
 		do
