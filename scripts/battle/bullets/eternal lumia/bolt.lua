@@ -23,7 +23,7 @@ local function appear(self)
 	Game.battle:addChild(circle)
 end
 
-function MyBullet:init(x, y, rot, no_effect, no_remove)
+function MyBullet:init(x, y, rot, no_effect, no_remove, no_appear)
     super:init(self, x, y)
 
 	local soul = Game.battle.soul
@@ -39,7 +39,8 @@ function MyBullet:init(x, y, rot, no_effect, no_remove)
 	
 	if not no_effect then
    		self:setSprite("bullets/" .. id, 4 / 60, true)
-		appear(self)
+		
+		if not no_appear then appear(self) else Assets.playSound("l_thunder", .5, 2) end
 	end
 
 	if no_remove then self.remove_offscreen = false end

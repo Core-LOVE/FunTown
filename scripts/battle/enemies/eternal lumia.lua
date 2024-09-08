@@ -154,23 +154,23 @@ function MyEnemy:init()
 	self.wave_count = 0
 
     self.waves = {
-		"eternal_lumia/beginning",
-		"eternal_lumia/mirrors",
-		"eternal_lumia/carousel",
-		"eternal_lumia/bounce",	
-		"eternal_lumia/diamonds",
+		-- "eternal_lumia/beginning",
+		-- "eternal_lumia/mirrors",
+		-- "eternal_lumia/carousel",
+		-- "eternal_lumia/bounce",	
+		-- "eternal_lumia/diamonds",
 
 		-- hard
 
-		"eternal_lumia/beginning_hard",
-		"eternal_lumia/mirrors_hard",
-		"eternal_lumia/carousel_hard",
-		"eternal_lumia/bounce_hard",
-		"eternal_lumia/diamonds_hard",
+		-- "eternal_lumia/beginning_hard",
+		-- "eternal_lumia/mirrors_hard",
+		-- "eternal_lumia/carousel_hard",
+		-- "eternal_lumia/bounce_hard",
+		-- "eternal_lumia/diamonds_hard",
 
 		-- final
 
-		"eternal_lumia/prefinal",
+		-- "eternal_lumia/prefinal",
 		"eternal_lumia/final",
 	}
 	

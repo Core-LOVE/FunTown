@@ -24,9 +24,10 @@ local function spawnLumia(self, x, y)
 		{"IT WON'T GET BETTER FROM\nHERE", "IT WILL NEVER GET\nBETTER FROM HERE", "ONLY DOOM"},
 		{"SsSO WHY ARE YOU...\n Trying?", "EVERY TIME YOU\nCLOSE THE FOUNTAIN...", "A NEW ONE POPS UP", "WE'VE ALREADY BEEN THROUGH\nTHISsS, HAVEN'T WE?", "HISsSTORY REPEATSsS."},
 		{"YOUR FRIENDSsS\nDON'T NEED YOU, SsSILLY!", "THEY ONLY\nCRAVE FOR YOUR\n[wait:8]SsSOUL...", "WITHOUT IT YOU'RE\nNOTHING."},
+		{"WITHOUT DARK WORLDSsS...", "YOU WOULDN'T MATTER."},
 
 		-- finale
-		{"...", "YET...", "YOU SsSTILL\nSsSTAND.", "ARE YOU TRYING\nTO PROVE ME WRONG?", "YOU NEED TO ACCEPT\nTHE REALITY, KRISsS."},
+		{"...", "YET...", "YOU SsSTILL\nSsSTAND.", "ARE YOU TRYING\nTO PROVE ME WRONG?", "CAN'T YOU JUST\nACCEPT THE REALITY,[wait:4]\nKRISsS?"},
 		{"HAHAHA!", "WELL THEN!\nHAVE A NICE EGOTRIP!"},	
 	}
 
@@ -38,7 +39,7 @@ local function spawnLumia(self, x, y)
 		{"DO YOU WISH\nTO SsSEE THEM DEAD?", "JUST END IT!\n[wait:8]END IT ALL!"},
 		{"You can't just\nlisten to yourself,\n[wait:6]don't you?", "This won't lead you\nanywhere."},
 
-		{"SsSELF HATRED IS NOT BAD!", "It's good."},
+		{"SsSELF HATRED IS NOT BAD!", "It's[wait:6] good."},
 		
 	}
 

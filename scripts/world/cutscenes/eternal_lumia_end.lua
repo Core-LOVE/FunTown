@@ -78,18 +78,16 @@ return {
 	    Assets.playSound("shadowcrystal")
 	    cutscene:text("* (You got ShadowCrystal.)")
 
-		cutscene:fadeOut(1)
+		cutscene:fadeOut(2, {
+			music = true,
+		})
 
-		cutscene:wait(1.5)
+		cutscene:wait(2.5)
 
+		cutscene:loadMap("arena")
 		cutscene:endCutscene()
 
-		if Mod.VIDEO_MODE then
-			cutscene:loadMap("arena")
-			Game.world:startCutscene("credits")
-		else
-			cutscene:loadMap("splash")
-		end
+		Game.world:startCutscene("credits")
 		cutscene:fadeIn(1)
 	end,
 
@@ -167,18 +165,16 @@ return {
 	    Assets.playSound("shadowcrystal")
 	    cutscene:text("* (You got ShadowCrystal.)")
 
-		cutscene:fadeOut(1)
+		cutscene:fadeOut(2, {
+			music = true,
+		})
 
-		cutscene:wait(1.5)
+		cutscene:wait(2.5)
 	
+		cutscene:loadMap("arena")
 		cutscene:endCutscene()
 
-		if Mod.VIDEO_MODE then
-			cutscene:loadMap("arena")
-			Game.world:startCutscene("credits")
-		else
-			cutscene:loadMap("splash")
-		end
+		Game.world:startCutscene("credits")
 
 		cutscene:fadeIn(1)
 	end,

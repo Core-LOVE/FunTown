@@ -211,5 +211,6 @@ return function(cutscene)
 
     cutscene:wait(5)
 
-    cutscene:gotoCutscene("splash", "menu")
+    cutscene:endCutscene()
+    cutscene:loadMap("splash")
 end

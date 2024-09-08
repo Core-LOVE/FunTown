@@ -1,26 +1,18 @@
 local MyWave, super = Class(Wave)
 
-local side
-local accel
-local min
-local max
-local absolute_min
-local absolute_max
-local t
-
 local function makeRoll(isVertical)
 	local sfx = Assets.playSound("l_carousel", 0.4)
 	sfx:setLooping(true)
 	sfx:stop()
 
-	local min = 4.15
+	local min = 2
 
 	return {
 		side = 1,
 		accel = 0,
 		min = min,
-		absolute_max = 6,
-		absolute_min = 3.9,
+		absolute_max = 3,
+		absolute_min = 2,
 		max = min,
 		t = 0,	
 		sfx = sfx,
@@ -35,14 +27,6 @@ function MyWave:init()
 		makeRoll(),
 		makeRoll(true),	
 	}
-
-	side = 1
-	accel = 0
-	min = 4.15
-	absolute_max = 6
-	absolute_min = 3.9
-	max = min
-	t = 0
 
 	self.arena_width = 160
 	self.arena_height = self.arena_width
@@ -62,7 +46,7 @@ function MyWave:update()
 	for k,roll in ipairs(self.rolls) do
 		local max = roll.max
 
-		roll.accel = roll.accel + (0.6 * DTMULT) * roll.side
+		roll.accel = roll.accel + ((0.6 * DTMULT) * roll.side)
 
 		local accel = roll.accel
 
@@ -84,14 +68,21 @@ end
 local function rollMoves(self, roll)
 	local timer = Timer()
 
-	local waitTimer = (roll.isVertical and 0.8) or 0.4
+	local waitTimer = (roll.isVertical and 2.0) or 1.0
 
 	timer:script(function(wait)
 		while true do
 			wait(waitTimer)
 
-			roll.side = -side
-			roll.max = math.random(roll.absolute_min, roll.absolute_max)
+			roll.side = -roll.side
+
+			local val = math.random(roll.absolute_min, roll.absolute_max)
+
+			if roll.isVertical then
+				val = self.rolls[1].max
+			end
+
+			roll.max = val
 		end
 	end)
 
@@ -101,35 +92,36 @@ local function rollMoves(self, roll)
 			local soul = Game.battle.soul
 
 			while true do
-				wait((1 - (roll.max / roll.absolute_max) * .5) * .66)
+				local w = (1 - (roll.max / roll.absolute_max) * .5) * .88
+				wait(w)
 
 				local y = (arena.y - self.arena_height * .5)
 				local scale_y = 1
 				local origin_y = 0
 
 				if roll.side == -1 then 
-					y = (arena.y + self.arena_height * .5) + 25
+					y = (arena.y + self.arena_height * .5) - 25
 					scale_y = -scale_y
 					origin_y = 1
 				end
 
 				local bullet = self:spawnBullet('eternal lumia/cbolt', soul.x, y)
-				bullet.scale_x = 0.5
-				bullet.scale_y = 0
+				bullet.scale_x = 0
+				bullet.scale_y = 0.5
 				bullet.physics.speed = 0
 				bullet.color = {0.5, 0.5, 0.5}
 				bullet.rotation = math.rad(90)
 				bullet.damage = 0
 				-- if roll.side == -1 then bullet.rotation = bullet.rotation + math.rad(180) else bullet.rotation = bullet.rotation + math.rad(90) end
 
-				-- bullet.scale_origin_y = 0
+				bullet.scale_origin_x = origin_y
 
 				local tm = Timer()
 				local current_max = roll.max
 
-				tm:tween(1 - (roll.max / roll.absolute_max) * .5, bullet, {scale_y = scale_y, scale_x = 1, color = {1, 1, 1}}, 'in-sine', function()
+				tm:tween(1 - (roll.max / roll.absolute_max) * .5, bullet, {scale_y = 1, scale_x = scale_y, color = {1, 1, 1}}, 'in-sine', function()
 					bullet.physics.speed = current_max * scale_y
-					tm:tween(0.5, bullet, {scale_y = scale_y * 1.5})
+					tm:tween(0.65, bullet, {scale_x = scale_y * 1.5})
 				end)
 
 				bullet:addChild(tm)
@@ -141,7 +133,8 @@ local function rollMoves(self, roll)
 			local soul = Game.battle.soul
 
 			while true do
-				wait((1 - (roll.max / roll.absolute_max) * .5) * .66)
+				local w = (1 - (roll.max / roll.absolute_max) * .25) * .88
+				wait(w + 0.5)
 
 				local x = (arena.x - self.arena_width * .5)
 				local scale_x = 1
@@ -158,6 +151,7 @@ local function rollMoves(self, roll)
 				bullet.scale_y = 0.5
 				bullet.physics.speed = 0
 				bullet.color = {0.5, 0.5, 0.5}
+				bullet.damage = 0
 
 				if roll.side == -1 then bullet.rotation = bullet.rotation + math.rad(180) end
 

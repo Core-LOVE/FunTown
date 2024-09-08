@@ -111,3 +111,26 @@ Utils.hook(Game, 'returnToMenu', function(orig, self)
 		Game.world:loadMap("splash")
 	end, {speed = 0.5, music = 10/30})
 end)
+
+Utils.hook(Battler, "statusMessage", function(_, self, x, y, type, arg, color, kill)
+    x, y = self:getRelativePos(x, y)
+
+    local offset = 0
+    if not kill then
+        offset = (self.hit_count * 20)
+    end
+
+    local percent = DamageNumber(type, arg, x + 4, y + 20 - offset, color)
+    percent:setParallax(0)
+    percent:setLayer(BATTLE_LAYERS.top + 99)
+    if kill then
+        percent.kill_others = true
+    end
+    self.parent:addChild(percent)
+
+    if not kill then
+        self.hit_count = self.hit_count + 1
+    end
+
+    return percent
+end)
