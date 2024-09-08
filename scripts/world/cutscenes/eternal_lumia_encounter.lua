@@ -84,23 +84,19 @@ return function(cutscene, event, player, facing)
     cutscene:text("* ...", nil, lumia)
     cutscene:text("* I KNOW YOU, KRISsS.[wait:4] I KNOW YOUR TYPE.", nil, lumia)
     cutscene:text("* NEVER DOUBTED FOR A SsSECOND THAT YOU WOULD COME.", nil, lumia)
-    cutscene:text("* ... YET...[wait:6] I SsSTILL FEEL SsSORROW.", nil, lumia)
-    cutscene:text("* BECAUSE YOU LEFT ME FOR SsSO LONG THAT I...", nil, lumia)
-    cutscene:text("* Well,[wait:4] it's nothing.", nil, lumia)
-    cutscene:text("* SsSO![wait:8] WILL YOU FINALLY REUNITE WITH ME?", nil, lumia)
+    cutscene:text("* THISsS[wait:6] WASsS MY PLACE OF LIVING ONCE.", nil, lumia)   
 
-    local choice cutscene:choicer({"Yes", "No"})
-
-    if choice == 2 then
-        cutscene:text("* WELL,[wait:6] YOUR CHOICE MATTERSsS.", nil, lumia)
-
-        return
-    end
+    local choice = cutscene:choicer({"Yes", "No"})
 
     lumia:setSprite("idle")
     Game.world.music:stop()
 
-    cutscene:text("* GREAT![wait:6] LET THE MISsST TAKE CARE OF EVERYTHING!", nil, lumia)
+    if choice == 2 then
+        cutscene:text("* ME DON'T CARESsS!", nil, lumia)
+        cutscene:text("* LET THE MISsST TAKE CARE OF EVERYTHING!", nil, lumia)
+    else
+        cutscene:text("* GREAT![wait:6] LET THE MISsST TAKE CARE OF EVERYTHING!", nil, lumia)
+    end
 
     Assets.playSound("smog")
 
