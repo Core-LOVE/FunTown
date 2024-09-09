@@ -50,7 +50,7 @@ function MyWave:onStart()
 	local x, y = arena:getTopLeft()
 
 	self.hand = self:spawnBullet("eternal lumia/hand", x, y - 142)
-	self.hand:setScale(1)
+	self.hand:setScale(0.1)
 
 	self.timer:tween(0.75, self.hand, {scale_x = 2, scale_y = 2}, 'out-sine', function()
 		spawnDiamond(self)
@@ -76,7 +76,7 @@ function MyWave:draw()
 	
 	love.graphics.setColor(arena.color)
 	love.graphics.setLineWidth(self.hand.scale_x)
-	love.graphics.line(hand.x + 26, hand.y + 20, x, y)
+	love.graphics.line(hand.x + 7, hand.y + 36, x, y)
 end
 
 function MyWave:update()
@@ -104,7 +104,7 @@ function MyWave:update()
 	soul.y = soul.y + dy
 	
 	hand.scale_y = 2 + math.abs(dy) * .05
-	hand.rotation = math.atan2(math.abs(dx), math.abs(dy)) + math.rad(-90)
+	hand.rotation = math.atan2(math.abs(dx), math.abs(dy)) + math.rad(90)
 	hand.rotation = hand.rotation * .1
 end
 

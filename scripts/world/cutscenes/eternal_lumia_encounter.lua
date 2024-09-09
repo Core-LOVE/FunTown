@@ -581,7 +581,9 @@ return function(cutscene, event, player, facing)
     ralsei:setFacing('right')
 
     cutscene:wait(0.5)
-    eternal_lumia.sprite:setHeadAnimation()
+    eternal_lumia.sprite:setHeadAnimation("close_mouth", 0.08, false, function()
+        eternal_lumia.sprite:setHeadAnimation()
+    end)
 
     kris:resetSprite()
     kris:setFacing('right')

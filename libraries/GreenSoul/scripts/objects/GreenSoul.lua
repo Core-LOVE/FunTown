@@ -311,6 +311,10 @@ function GreenSoul:update()
 	for _, key in ipairs(self.rotationSidesIterator) do
 		if inputCheck(self, key) then
 			self:rotateShield(key)
+
+			if not self.can_defend then
+				break
+			end
 		end
 	end
 end

@@ -47,9 +47,9 @@ function MyEnemy:init()
 	self.prev_wave = nil
 	
 	self.spare_points = 5
-	self.attack = 13
-	self.health = 1
-	-- self.health = 800
+	self.attack = 11
+	-- self.health = 1
+	self.health = 960
 	self.max_health = self.health
 	self.gold = 50
 	self.check = "An illusory being."

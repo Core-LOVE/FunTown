@@ -53,16 +53,16 @@ function MyWave:onStart()
 					local y = soul.y + (math.sin(angle) * radius) + math.random(-16, 16)
 
 					local bolt = spawnBolt(self, x, y)
-					bolt.physics.speed = bolt.physics.speed * .75
+					bolt.physics.speed = bolt.physics.speed * .77
 					-- bolt.sfx:stop()
 
-					wait(0.15)
+					wait(0.13)
 				end
 
 				wait(delay)
 			end
 
-			wait(0.3)
+			wait(0.26)
 		end
 	end)
 end

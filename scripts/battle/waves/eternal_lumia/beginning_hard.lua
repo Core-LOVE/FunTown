@@ -43,13 +43,19 @@ function MyWave:birds()
 		Assets.playSound("chirp", 0.5, 1.5)
 	end)
 
-	self.timer:every(0.5, function()
+	self.timer:every(0.6, function()
 		local dx, dy = soul.x, soul.y
 
 		Assets.playSound("swipe", 0.5, 1.5)
 
 		local bird = self:spawnBullet("eternal lumia/bigbird", soul.x, 0)
 		bird.birds = {}
+
+		Utils.hook(bird, 'remove', function(orig, self, ...)
+			bird = nil
+
+			return orig(self, ...)
+		end)
 
 		local sx = 12 * side
 
@@ -61,10 +67,10 @@ function MyWave:birds()
 				if bird then
 					smallbird.rotation = bird.rotation
 				else
-					local rot = Utils.angle(bird, soul)	
+					local rot = Utils.angle(smallbird, soul)	
 
 					smallbird.physics.direction = rot
-					smallbird.physics.speed = 4.5
+					smallbird.physics.speed = 2
 				end
 			end
 

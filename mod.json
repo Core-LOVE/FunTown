@@ -16,9 +16,9 @@
     },
 
     "equipment": {
-        "kris": {"armor": ["supersocks", "amber_card"] },
-        "susie": {"armor": ["supersocks", "amber_card"] },
-        "ralsei": {"armor": ["yellow_ribbon", "supersocks"] }
+        "kris": {"armor": ["supersocks", "amber_card"], "weapon": "bounceblade"},
+        "susie": {"armor": ["supersocks", "amber_card"], "weapon": "autoaxe"},
+        "ralsei": {"armor": ["yellow_ribbon", "supersocks"], "weapon": "red_scarf"}
     },
 
     "config": {

@@ -16,7 +16,7 @@ function item:init()
     -- Shop description
     self.shop = ""
     -- Menu description
-    self.description = "Chain-armor. Send it to 10 others\nor it'll lose its defensive rating"
+    self.description = "They warm your legs."
 
     -- Default shop price (sell price is halved)
     self.price = 300

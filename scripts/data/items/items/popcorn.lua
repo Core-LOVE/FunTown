@@ -14,7 +14,7 @@ function item:init()
     self.icon = nil
 
     -- Battle description
-    -- self.effect = "Healing\nvaries"
+    self.effect = "Heals\n90HP"
 	
     -- Shop description
     self.shop = ""

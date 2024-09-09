@@ -60,6 +60,12 @@ return function(cutscene, event, player, facing)
 		cutscene:wait(0.75)
 		Assets.playSound("camera")
 
+		local sprite = Sprite("effects/sparkle", 6, 6)
+		Game.world.timer:tween(0.5, sprite, {x = -2, alpha = 0}, 'out-sine', function()
+			sprite:remove()
+		end)
+		lumia:addChild(sprite)
+
 		cutscene:wait(0.75)
 
 		lumia:setAnimation("world_off")

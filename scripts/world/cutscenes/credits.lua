@@ -98,8 +98,9 @@ credits[8] = [[
 
 
 
-
 [color:999999]Testing:[color:reset]
+KateBulka
+Razor X
 
 ]]
 
@@ -112,6 +113,7 @@ credits[9] = [[
 SMBX2 Community
 Love2D Community
 Kristal Community
+Wandering Makers
 ]]
 
 credits[10] = [[
@@ -120,9 +122,10 @@ credits[10] = [[
 
 
 [color:999999]Special Thanks:[color:reset]
-Wandering Makers
 Andromedia
 Mylazt
+Nanareli
+skroy
 ]]
 
 credits[11] = [[
@@ -175,11 +178,42 @@ end
 return function(cutscene)
 	hide()
 
+    do
+        local text = Text("Press [Confirm] to skip...", 6, 6)
+        text:setScale(.5)
+        text.layer = black.layer + 1
+        text.alpha = 0
+
+        Game.world:addChild(text)
+        Game.world.timer:tween(1, text, {alpha = 1}, nil, function()
+            Game.world.timer:after(3, function()
+                Game.world.timer:tween(1.5, text, {alpha = 0}, nil, function()
+                    text:remove()
+                end)
+            end)
+        end)
+    end
+    
     cutscene:wait(1)
 
     local text
 
-    Assets.playSound("realization")
+    local sfx = Assets.playSound("realization")
+
+    local handle = Game.world.timer:script(function(wait)
+        while true do
+            if Input.down("confirm") then
+                sfx:stop()
+
+                cutscene:endCutscene()
+                cutscene:loadMap("splash")
+
+                break
+            end
+
+            wait()
+        end
+    end)
 
     for k,credit in ipairs(credits) do
         if text then text:remove() end
@@ -211,6 +245,7 @@ return function(cutscene)
 
     cutscene:wait(5)
 
+    Game.world.timer:cancel(handle)
     cutscene:endCutscene()
     cutscene:loadMap("splash")
 end

@@ -155,23 +155,26 @@ function MyEnemy:init()
 
     self.waves = {
 		"eternal_lumia/beginning",
-		"eternal_lumia/bounce",	
 		"eternal_lumia/carousel",
 		"eternal_lumia/mirrors",
 		"eternal_lumia/diamonds",
+		"eternal_lumia/bounce",	
 
 		-- hard
 
 		"eternal_lumia/beginning_hard",
-		"eternal_lumia/bounce_hard",
 		"eternal_lumia/carousel_hard",
 		"eternal_lumia/mirrors_hard",
 		"eternal_lumia/diamonds_hard",
-
+		"eternal_lumia/bounce_hard",
+		
 		-- final
 
 		"eternal_lumia/prefinal",
 		"eternal_lumia/final",
+
+		-- after
+    	"eternal_lumia/charges",
 	}
 	
 	self.random_waves = self.waves
@@ -182,8 +185,9 @@ function MyEnemy:init()
 
 	self.spare_points = 0
 	self.attack = 13
-	-- self.health = 800
-	self.health = 1
+	self.health = 5250
+    self.tired_percentage = 0
+	-- self.health = 1
 	self.max_health = self.health
 	self.gold = 50
 	

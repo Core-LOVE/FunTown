@@ -24,6 +24,8 @@ local function boltSpawning(self)
 		table.insert(heads, {x = enemy.x + head.x - 16, y = enemy.y + head.y - 56})
 	end	
 
+	local faster = 0
+
 	self.timer:script(function(wait)
 		local old_rotation = 0
 
@@ -34,7 +36,14 @@ local function boltSpawning(self)
 
 				self:spawnBullet("eternal lumia/jump_bolt", x, y)
 
-				wait(0.8)	
+				faster = faster + 1
+
+				if faster >= 2 then
+					wait(0.32)	
+					faster = 0
+				else
+					wait(0.42)	
+				end
 			end	
 		end
 	end)

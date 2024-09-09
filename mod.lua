@@ -22,6 +22,10 @@ Mod.flags = {
 }
 
 function Mod:_getItems()
+	for k,v in ipairs(Game.party) do
+		v:heal(v:getStat("health"), false)
+	end
+	
 	local itemarray = {
 		fuzzypizza = "FuzzyPizza",
 		koola = "Koola",
@@ -69,7 +73,13 @@ function Mod:_readOptionEntry(name)
 	return val
 end
 
+function Mod:unload()
+    FRAMERATE = Kristal.Config["fps"] -- to reset it to what it was originally
+end
+
 function Mod:init()
+    FRAMERATE = 30 -- force a 30 fps cap
+
 	-- local os_type = love.system.getOS()
 	
 	-- if os_type == "OS X" or os_type == "Windows" then

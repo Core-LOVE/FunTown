@@ -56,7 +56,6 @@ function MyMap:onEnter()
 	end
 
 	Mod.flags.splash = false
-
 	-- Game.world:startCutscene("splash", "menu")
 
 	-- self.state = "warning"

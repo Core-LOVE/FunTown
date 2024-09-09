@@ -29,10 +29,10 @@ local function boltSpawning(self)
 
 		while (true) do
 			for k,head in ipairs(heads) do
-				local rotation = randomWithStep(10, 85, 15)
+				local rotation = randomWithStep(10, 85, 10)
 
 				while (rotation == old_rotation) do
-					rotation = randomWithStep(10, 80, 15)
+					rotation = randomWithStep(10, 80, 10)
 				end
 
 				old_rotation = rotation
@@ -41,7 +41,7 @@ local function boltSpawning(self)
 					rotation = -rotation
 				end
 
-				for i = 1, 4 do
+				for i = 1, 8 do
 					local x = head.x
 					local y = head.y
 
@@ -49,7 +49,7 @@ local function boltSpawning(self)
 					wait(0.125)
 				end
 			
-				wait(0.6)	
+				wait(0.75)	
 			end	
 		end
 	end)
