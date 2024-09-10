@@ -144,3 +144,25 @@ Utils.hook(Battler, "statusMessage", function(_, self, x, y, type, arg, color, k
 
     return percent
 end)
+
+Utils.hook(Game, 'gameOver', function(orig, self, ...)
+    for _,wave in ipairs(Game.battle.waves) do
+    	if wave.onGameOver then wave:onGameOver() end
+    end
+
+	return orig(self, ...)
+end)
+
+-- function Game:gameOver(x, y)
+--     Kristal.hideBorder(0)
+
+--     self.state = "GAMEOVER"
+--     if self.battle   then self.battle  :remove() end
+--     if self.world    then self.world   :remove() end
+--     if self.shop     then self.shop    :remove() end
+--     if self.gameover then self.gameover:remove() end
+--     if self.legend   then self.legend  :remove() end
+
+--     self.gameover = GameOver(x or 0, y or 0)
+--     self.stage:addChild(self.gameover)
+-- end

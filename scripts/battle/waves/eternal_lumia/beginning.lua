@@ -31,7 +31,7 @@ function MyWave:onStart()
 		local radius = 216
 
 		local amount = 6
-		local delay = 0.2
+		local delay = 0.164
 		
 		wait(0.32)
 
@@ -47,22 +47,22 @@ function MyWave:onStart()
 
 				old_angle = angle
 				
-				for _ = 1, 3 do
+				for _ = 1, 2 do
 					local angle = math.rad(angle + math.random(-8, 8))
 					local x = soul.x + (math.cos(angle) * radius) + math.random(-16, 16)
 					local y = soul.y + (math.sin(angle) * radius) + math.random(-16, 16)
 
 					local bolt = spawnBolt(self, x, y)
-					bolt.physics.speed = bolt.physics.speed * .77
+					bolt.physics.speed = bolt.physics.speed * .8
 					-- bolt.sfx:stop()
 
-					wait(0.13)
+					wait(0.11)
 				end
 
 				wait(delay)
 			end
 
-			wait(0.26)
+			wait(0.21)
 		end
 	end)
 end

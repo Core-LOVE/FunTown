@@ -79,7 +79,7 @@ function MyWave:onStart()
 
 				local y = ypos[math.random(#ypos)]
 
-				if math.random() > 0.75 then
+				if math.random() > 0.6 then
 					while (y == prev_y) do
 						y = ypos[math.random(#ypos)]
 					end
@@ -107,7 +107,7 @@ function MyWave:onStart()
 					end)
 				end
 
-				wait(0.28)
+				wait(0.21)
 			end
 
 			wait(0.3)

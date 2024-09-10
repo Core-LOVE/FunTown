@@ -5,19 +5,27 @@ local function makeRoll(isVertical)
 	sfx:setLooping(true)
 	sfx:stop()
 
-	local min = 2
+	local min = 3
 
 	return {
 		side = 1,
 		accel = 0,
 		min = min,
-		absolute_max = 3,
-		absolute_min = 2,
+		absolute_max = 4,
+		absolute_min = min,
 		max = min,
 		t = 0,	
 		sfx = sfx,
 		isVertical = isVertical
 	}
+end
+
+function MyWave:onGameOver()
+	for k,v in ipairs(self.rolls) do
+		v.sfx:stop()
+		v.sfx:release()
+		v.sfx = nil
+	end
 end
 
 function MyWave:init()
@@ -57,7 +65,10 @@ function MyWave:update()
 		end
 
 		roll.t = roll.t + roll.accel
-		roll.sfx:setPitch(math.abs(roll.accel / roll.min))
+
+		if roll.sfx then
+			roll.sfx:setPitch(math.abs(roll.accel / roll.min))
+		end
 	end
 
 	-- self.sfx:setPitch(math.abs(accel / min))

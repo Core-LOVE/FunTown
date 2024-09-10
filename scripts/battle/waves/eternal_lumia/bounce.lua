@@ -39,10 +39,10 @@ local function boltSpawning(self)
 				faster = faster + 1
 
 				if faster >= 2 then
-					wait(0.32)	
+					wait(0.36)	
 					faster = 0
 				else
-					wait(0.42)	
+					wait(0.48)	
 				end
 			end	
 		end

@@ -72,11 +72,11 @@ function MyEnemy:onAct(battler, name)
 	elseif name == "SupportShield" then
 		Assets.playSound("supportshield")
 		GreenSoul.hasSecondShield = true
-		return "* Ralsei? created second shield!"
+		return "* You created second shield!"
 	elseif name == "PostDestruct" then
 		Assets.playSound("postdestruct")
 		GreenSoul.isExplosive = true
-		return "* Susie? made soul explosive!"
+		return "* You made soul explosive!"
 	elseif name == "Believe" then
 		local t = {
 			"* You believed in yourself and your friends.\n[wait:8]It warmed your soul.",

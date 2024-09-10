@@ -33,12 +33,18 @@ end
 local start_x = 16
 local end_x = 96
 
-local function spawnDiamond(self)
-	local x = randomWithStep(start_x, end_x, 32) + 16
-	local y = SCREEN_HEIGHT - randomWithStep(start_x, 360, 32) - 32
+local flip = false
 
-	if math.random() > 0.5 then
+local function spawnDiamond(self, dontflip)
+	local x = randomWithStep(start_x, end_x, 32) + 16
+	local y = SCREEN_HEIGHT - randomWithStep(start_x, 276, 32) - 32
+
+	if flip then
 		x = SCREEN_WIDTH - randomWithStep(start_x, end_x, 32) - 16
+	end
+
+	if not dontflip then
+		flip = not flip
 	end
 
 	local bullet = self:spawnBullet("eternal lumia/big_diamond", x, y)
@@ -52,11 +58,19 @@ function MyWave:onStart()
 	self.hand = self:spawnBullet("eternal lumia/hand", x, y - 142)
 	self.hand:setScale(0.1)
 
-	self.timer:tween(0.75, self.hand, {scale_x = 2, scale_y = 2}, 'out-sine', function()
-		spawnDiamond(self)
+	self.timer:tween(1, self.hand, {scale_x = 2, scale_y = 2}, 'out-sine', function()
+		spawnDiamond(self, true)
 
-		self.timer:every(0.72, function()
+		self.timer:after(0.2, function()
 			spawnDiamond(self)
+		end)
+
+		self.timer:every(1, function()
+			spawnDiamond(self, true)
+
+			self.timer:after(0.25, function()
+				spawnDiamond(self)
+			end)
 		end)
 	end)
 
@@ -100,8 +114,7 @@ function MyWave:update()
 	
 	arena.x = arena.x + dx
 	arena.y = arena.y + dy
-	soul.x = soul.x + dx
-	soul.y = soul.y + dy
+	soul:move(dx, dy)
 	
 	hand.scale_y = 2 + math.abs(dy) * .05
 	hand.rotation = math.atan2(math.abs(dx), math.abs(dy)) + math.rad(90)

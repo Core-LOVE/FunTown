@@ -14,22 +14,39 @@ local function randomWithStep(first, last, step)
     return first + step * math.random(0, maxSteps)
 end
 
-local function spawnDiamond(self)
-	local x = randomWithStep(32, 128, 32) + 16
-	local y = SCREEN_HEIGHT - randomWithStep(32, 360, 32) - 32
+local flip = false
 
-	if math.random() > 0.5 then
+local function spawnDiamond(self, dont_flip)
+	local x = randomWithStep(32, 96, 32) + 16
+	local y = SCREEN_HEIGHT - randomWithStep(32, 320, 32) - 32
+
+	if flip then
 		x = SCREEN_WIDTH - randomWithStep(32, 128, 32) - 16
+	end
+
+	if not dont_flip then
+		flip = not flip
 	end
 
 	local bullet = self:spawnBullet("eternal lumia/big_diamond", x, y)
 end
 
 function MyWave:onStart()
-	spawnDiamond(self)
+	local add_t = 0.375
+	local t = 0.75 + (add_t / 1.5)
 
-	self.timer:every(0.8, function()
+	spawnDiamond(self, true)
+
+	self.timer:after(add_t, function()
 		spawnDiamond(self)
+	end)
+
+	self.timer:every(t, function()
+		spawnDiamond(self, true)
+
+		self.timer:after(add_t, function()
+			spawnDiamond(self)
+		end)
 	end)
 	-- Assets.playSound("l_film_1")
 	

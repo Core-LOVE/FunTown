@@ -52,6 +52,7 @@ local function spawnLumia(self, x, y)
 		"* Feels like an utopian show.",
 		"* Is any of this real...?",
 		"* Memories flash before your eyes,[wait:8]as if they were just frames.",
+		"* Many layers of abstraction."
 	}
 
 	-- Game.battle.enemies[1] = nil 

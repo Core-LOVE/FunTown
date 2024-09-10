@@ -8,6 +8,12 @@ local absolute_min
 local absolute_max
 local t
 
+function MyWave:onGameOver()
+	self.sfx:stop()
+	self.sfx:release()
+	self.sfx = nil
+end
+
 function MyWave:init()
 	super:init(self)
 	
@@ -33,7 +39,7 @@ function MyWave:init()
 end
 
 function MyWave:update()
-	accel = accel + (0.6 * DTMULT) * side
+	accel = accel + (0.8 * DTMULT) * side
 
 	if accel > max then
 		accel = max
@@ -43,7 +49,9 @@ function MyWave:update()
 
 	t = t + accel
 
-	self.sfx:setPitch(math.abs(accel / min))
+	if self.sfx then
+		self.sfx:setPitch(math.abs(accel / min))
+	end
 
 	super.update(self)
 end
@@ -54,7 +62,7 @@ function MyWave:onStart()
 
 	self.timer:script(function(wait)
 		while true do 
-			local timer = math.random() + 0.6
+			local timer = 0.3 + (math.random() * 0.75)
 
 			wait(timer)
 

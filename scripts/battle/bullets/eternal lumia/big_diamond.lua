@@ -28,11 +28,11 @@ local function explode(self)
     for i = 1, 3 do
         local x = self.x + 16
         local y = self.y + (4 * i)
-        local speed = 7
+        local speed = 8
         local angle = -1
 
         if self.slower then
-            angle = -6
+            angle = -3
         end
 
         if i == 2 then
@@ -44,12 +44,13 @@ local function explode(self)
         end
 
         if self.slower then
-            speed = speed * 0.9
+            speed = speed * 0.8
         end
 
         local bullet = self.wave:spawnBullet("diamond", x, y, Utils.angle(Game.battle.soul, self) + math.rad(angle), speed)
         bullet:setScale(1)
         bullet:setHitbox(0, 0, 12, 12)
+        bullet.tp = 1
     end
 
     for dx = 0, 32, 10 do
@@ -95,8 +96,8 @@ function MyBullet:init(x, y)
 
     self.start = {x, -34}
 
-    t:tween(1, self, {x = x, y = y}, 'out-back')
-    t:after(1.5, function()
+    t:tween(0.75, self, {x = x, y = y}, 'out-back')
+    t:after(1, function()
         explode(self)
 
         t:tween(0.5, self, {y = -32}, 'in-sine', function()

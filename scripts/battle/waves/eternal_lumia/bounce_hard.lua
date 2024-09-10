@@ -5,7 +5,7 @@ function MyWave:init()
 	
 	self.arena_width = 80
 	self.arena_height = self.arena_width
-	self:setArenaOffset(-40, 0)
+	self:setArenaOffset(-45, -5)
 
 	self.time = 10
 end
@@ -25,31 +25,31 @@ local function boltSpawning(self)
 	end	
 
 	self.timer:script(function(wait)
-		local old_rotation = 0
+		local rotation = 22.5
+		local side = 1
 
 		while (true) do
 			for k,head in ipairs(heads) do
-				local rotation = randomWithStep(10, 85, 10)
-
-				while (rotation == old_rotation) do
-					rotation = randomWithStep(10, 80, 10)
-				end
-
-				old_rotation = rotation
-
-				if math.random() > 0.5 then
-					rotation = -rotation
-				end
-
-				for i = 1, 8 do
+				for i = 1, 2 do
 					local x = head.x
 					local y = head.y
+					local rot = math.rad(180 + (rotation * side))
 
-					self:spawnBullet("eternal lumia/dbolt", x, y, math.rad(180 + rotation), 50, 275)
-					wait(0.125)
+					self:spawnBullet("eternal lumia/dbolt", x, y, rot + math.rad(-22.5), 50, 275)
+					self:spawnBullet("eternal lumia/dbolt", x, y, rot, 50, 275)
+					self:spawnBullet("eternal lumia/dbolt", x, y, rot + math.rad(22.5), 50, 275)
+					wait(0.05)
 				end
 			
-				wait(0.75)	
+				rotation = rotation - (22.5 / 2)
+
+				if rotation < -90 then
+					rotation = 22.5
+				end
+
+				-- side = -side
+
+				wait(1.5)	
 			end	
 		end
 	end)
